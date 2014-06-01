@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Digital-7';
+  src: url('../font/digital-7.eot?') format('eot'), 
+       url('../font/digital-7.woff') format('woff'), 
+       url('../font/digital-7.ttf')  format('truetype'),
+       url('../font/digital-7.svg#Digital-7') format('svg');
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+}
+
+#keyboard {
+  margin: 30px;
+  width: 430px;
+}
+
+#keyboard > .row > span {
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  border: 1px solid grey;
+  background-color: lightgrey;
+  text-align: center;
+  padding-top: 3px;
+  vertical-align: middle;
+  font-weight: bold;
+  margin: 4px;
+}
+
+#pressure-gauge {
+  position: relative;
+  height: 380px;
+  margin: 30px;
+}
+
+#pressure-gauge #slider {
+  position: absolute;
+  top: 250px;
+  left: 93px;
+}
+
+#linear-gauge {
+  margin: 30px;
+}
+
+#digital-clock {
+  width: 200px;
+  text-align: center;
+  font-family: 'Digital-7';
+  font-size: 100px;
+  background-color: darkgreen;
+  color: lawngreen;
+  margin: 30px;
+  padding: 0;
+  line-height: 1;
+}
