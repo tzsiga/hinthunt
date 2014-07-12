@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Control Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap-theme.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/control-panel.css" />
+  <script type="text/javascript" src="../socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="../assets/plugin/jquery/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../assets/plugin/countdown/jquery.plugin.min.js"></script>
+  <script type="text/javascript" src="../assets/plugin/countdown/jquery.countdown.min.js"></script>
+  <script type="text/javascript" src="../assets/plugin/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+  <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+  <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+  <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+  <script type="text/javascript" src="control.js"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="upper-hud row col-md-12">
+      <button type="button" class="btn btn-danger end">End game</button>
+      <h1>Control Panel</h1>
+    </div>
+
+    <div class="upper-hud row col-md-12">
+      <h3 class="col-sm-6 col-xs-12">Game: Yellow Submarine</h3>
+      <h3 class="col-sm-4 col-xs-12">Time left: <span class="game-time"></span></h3>
+      <div class="col-sm-2 col-xs-12 text-right">
+        <button type="button" class="btn btn-primary hint">+ Hint</button>
+      </div>
+    </div>
+
+    <div class="row col-md-12 cards">
+    </div>
+
+    <script type="text/javascript" src="onload.js"></script>
+  </div>
+
+</body>
+</html>

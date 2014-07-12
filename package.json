@@ -1,0 +1,17 @@
+{
+  "name": "submarine",
+  "version": "0.0.1",
+  "description": "yellow submarine and deep down ui software package",
+  "private": true,
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:tzsiga/submarine.git"
+  },
+  "dependencies": {
+    "express": ">=4.6.1",
+    "socket.io": ">=1.0.6",
+    "chai": ">=1.9.1",
+    "nodemon": ">=1.2.1"
+  }
+}

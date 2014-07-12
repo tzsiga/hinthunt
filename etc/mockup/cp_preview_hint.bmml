@@ -1,0 +1,186 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1295" measuredH="716" mockupW="1280" mockupH="700">
+  <controls>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="215" y="113" w="-1" h="-1" measuredW="240" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Control%20Panel</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="15" y="16" w="1280" h="700" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>Browser%20%0Ahttp%3A//localhost/controlpanel</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Canvas" x="215" y="291" w="249" h="100" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Button" x="392" y="352" w="-1" h="-1" measuredW="57" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6989903</color>
+        <text>SEND</text>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::Button" x="331" y="352" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13421772</color>
+        <text>SKIP</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::SubTitle" x="232" y="306" w="-1" h="-1" measuredW="60" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Hint%201</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Label" x="232" y="355" w="-1" h="-1" measuredW="86" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Time%20left%3A%205%3A43</text>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Button" x="904" y="113" w="93" h="34" measuredW="89" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <text>END%20GAME</text>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::SubTitle" x="215" y="191" w="-1" h="-1" measuredW="268" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Game%3A%20Yellow%20Submarine</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Label" x="232" y="331" w="-1" h="-1" measuredW="140" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Milestone%201%3A%20r%F6vid%20le%EDr%E1s</text>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::SubTitle" x="215" y="233" w="-1" h="-1" measuredW="280" measuredH="43" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>40</size>
+        <text>Time%20left%3A%20*25*%3A13</text>
+      </controlProperties>
+    </control>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::Canvas" x="480" y="291" w="249" h="100" measuredW="100" measuredH="70" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>10066329</borderColor>
+      </controlProperties>
+    </control>
+    <control controlID="102" controlTypeID="com.balsamiq.mockups::SubTitle" x="497" y="306" w="-1" h="-1" measuredW="66" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>Hint%202</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="104" controlTypeID="com.balsamiq.mockups::Label" x="497" y="331" w="-1" h="-1" measuredW="111" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>Milestone%202%20-%20k%E9sz</text>
+      </controlProperties>
+    </control>
+    <control controlID="105" controlTypeID="com.balsamiq.mockups::Canvas" x="743" y="291" w="249" h="100" measuredW="100" measuredH="70" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <borderStyle>square</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="108" controlTypeID="com.balsamiq.mockups::SubTitle" x="760" y="306" w="-1" h="-1" measuredW="200" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Hint%203%20-%20not%20solved</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="110" controlTypeID="com.balsamiq.mockups::Label" x="760" y="331" w="-1" h="-1" measuredW="170" measuredH="21" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Milestone%203%3A%20m%E9g%20mindig%20v%E1r</text>
+      </controlProperties>
+    </control>
+    <control controlID="111" controlTypeID="com.balsamiq.mockups::Canvas" x="215" y="413" w="249" h="100" measuredW="100" measuredH="70" zOrder="17" locked="false" isInGroup="-1"/>
+    <control controlID="112" controlTypeID="com.balsamiq.mockups::Button" x="392" y="474" w="-1" h="-1" measuredW="57" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6989903</color>
+        <text>SEND</text>
+      </controlProperties>
+    </control>
+    <control controlID="113" controlTypeID="com.balsamiq.mockups::Button" x="331" y="474" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13421772</color>
+        <text>SKIP</text>
+      </controlProperties>
+    </control>
+    <control controlID="114" controlTypeID="com.balsamiq.mockups::SubTitle" x="232" y="428" w="-1" h="-1" measuredW="66" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Hint%204</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="115" controlTypeID="com.balsamiq.mockups::Label" x="232" y="477" w="-1" h="-1" measuredW="84" measuredH="21" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Time%20left%3A%201%3A23</text>
+      </controlProperties>
+    </control>
+    <control controlID="116" controlTypeID="com.balsamiq.mockups::Label" x="232" y="453" w="-1" h="-1" measuredW="69" measuredH="21" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Milestone%204</text>
+      </controlProperties>
+    </control>
+    <control controlID="117" controlTypeID="com.balsamiq.mockups::Button" x="921" y="241" w="71" h="34" measuredW="65" measuredH="27" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10470904</color>
+        <text>+%20HINT</text>
+      </controlProperties>
+    </control>
+    <control controlID="118" controlTypeID="com.balsamiq.mockups::Label" x="760" y="355" w="-1" h="-1" measuredW="97" measuredH="21" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13576743</color>
+        <text>Time%20spent%3A%202%3A18</text>
+      </controlProperties>
+    </control>
+    <control controlID="143" controlTypeID="com.balsamiq.mockups::Canvas" x="122" y="103" w="888" h="432" measuredW="100" measuredH="70" zOrder="26" locked="true" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.75</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="145" controlTypeID="com.balsamiq.mockups::Canvas" x="450" y="208" w="410" h="312" measuredW="100" measuredH="70" zOrder="27" locked="false" isInGroup="-1"/>
+    <control controlID="150" controlTypeID="com.balsamiq.mockups::SubTitle" x="589" y="218" w="-1" h="-1" measuredW="132" measuredH="27" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <text>Preview%20hint</text>
+      </controlProperties>
+    </control>
+    <control controlID="153" controlTypeID="com.balsamiq.mockups::Image" x="498" y="266" w="313" h="150" measuredW="77" measuredH="79" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <borderStyle>none</borderStyle>
+        <size>28</size>
+        <text>hint%20k%E9p</text>
+      </controlProperties>
+    </control>
+    <control controlID="154" controlTypeID="com.balsamiq.mockups::RoundButton" x="844" y="195" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>cp_game_monitor%26bm%3Bcp_game_monitor.bmml%26bm%3Bcp_game_monitor.bmml%26bm%3Bcp_game_monitor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22829%2C179%2C861%2C211%22%20href%3D%22cp_game_monitor.bmml%22%20alt%3D%22cp_game_monitor%22%20id%3D%22154%22/%3E</map>
+        <size>20</size>
+        <text>X</text>
+      </controlProperties>
+    </control>
+    <control controlID="155" controlTypeID="com.balsamiq.mockups::Paragraph" x="499" y="455" w="313" h="38" measuredW="200" measuredH="80" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>16</size>
+        <text>A%20hint%20sz%F6veget%20szimpl%E1n%20csak%20ki%EDrn%E1%2C%20b%E1rmi%20legyen%20is%20az.%20P%E9ld%E1ul%20ez%20egy%20minta.</text>
+      </controlProperties>
+    </control>
+    <control controlID="156" controlTypeID="com.balsamiq.mockups::HRule" x="605" y="434" w="-1" h="-1" measuredW="100" measuredH="10" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6710886</color>
+      </controlProperties>
+    </control>
+    <control controlID="157" controlTypeID="com.balsamiq.mockups::Arrow" x="137" y="314" w="87" h="10" measuredW="150" measuredH="100" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text>click</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

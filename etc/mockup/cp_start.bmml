@@ -1,0 +1,75 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1295" measuredH="716" mockupW="1280" mockupH="700">
+  <controls>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="215" y="113" w="-1" h="-1" measuredW="240" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Control%20Panel</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="15" y="16" w="1280" h="700" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>Browser%20%0Ahttp%3A//localhost/controlpanel</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::SubTitle" x="215" y="191" w="-1" h="-1" measuredW="305" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20an%20action%20to%20perform%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::ComboBox" x="447" y="246" w="108" h="-1" measuredW="108" measuredH="62" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Select%20action%0AGame%0ASystem%20test</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Button" x="616" y="350" w="78" h="33" measuredW="63" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>9684093</color>
+        <text>START</text>
+      </controlProperties>
+    </control>
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::ComboBox" x="589" y="246" w="136" h="-1" measuredW="105" measuredH="62" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20game%0AYellow%20Submarine%0ADeep%20Down</text>
+      </controlProperties>
+    </control>
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::Alert" x="831" y="370" w="-1" h="-1" measuredW="200" measuredH="117" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>%2Ccp_game_monitor%26bm%3Bcp_game_monitor.bmml%26bm%3Bcp_game_monitor.bmml%26bm%3Bcp_game_monitor.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22921%2C421%2C1006%2C461%22%20href%3D%22cp_game_monitor.bmml%22%20alt%3D%22cp_game_monitor%22%20id%3D%2291%22/%3E%0A</map>
+        <text>Please%20confirm%0AAre%20your%20sure%20you%20want%20to%20_____%0ANo%2C%20Yes</text>
+      </controlProperties>
+    </control>
+    <control controlID="92" controlTypeID="com.balsamiq.mockups::Arrow" x="703" y="362" w="123" h="38" measuredW="150" measuredH="100" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <text>click</text>
+      </controlProperties>
+    </control>
+    <control controlID="93" controlTypeID="com.balsamiq.mockups::ComboBox" x="754" y="246" w="136" h="-1" measuredW="127" measuredH="78" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20language%0AEnglish%0AGerman%0AHungarian</text>
+      </controlProperties>
+    </control>
+    <control controlID="94" controlTypeID="com.balsamiq.mockups::Arrow" x="898" y="252" w="67" h="10" measuredW="150" measuredH="100" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="95" controlTypeID="com.balsamiq.mockups::Paragraph" x="978" y="246" w="131" h="78" measuredW="200" measuredH="80" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>a%20_game_%20%E9s%20_language_%20kiv%E1laszt%E1s%20%26csak%20j%E1t%E9k%20eset%E9n%26%20jelenik%20meg%2C%20a%20nylev%20a%20hintekre%20vonatkozik</text>
+      </controlProperties>
+    </control>
+    <control controlID="96" controlTypeID="com.balsamiq.mockups::Menu" x="920" y="113" w="-1" h="-1" measuredW="150" measuredH="104" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>cp_login%26bm%3Bcp_login.bmml%26bm%3Bcp_login.bmml%26bm%3Bcp_login.bmml%2C%2C%2C%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22905%2C102%2C1055%2C123%22%20href%3D%22cp_login.bmml%22%20alt%3D%22cp_login%22%20id%3D%2296%22/%3E%0A</map>
+        <selectedIndex>-1</selectedIndex>
+        <text>Log%20out%0A---%0AChange%20password%0A---%0A-Restart-%0A-Shut%20down-</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -1,0 +1,40 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1295" measuredH="716" mockupW="1280" mockupH="700">
+  <controls>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="15" y="16" w="1280" h="700" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>Browser%20%0Ahttp%3A//localhost/controlpanel</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Button" x="606" y="283" w="98" h="33" measuredW="69" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <href>cp_start%26bm%3Bcp_start.bmml%26bm%3Bcp_start.bmml%26bm%3Bcp_start.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22591%2C267%2C689%2C300%22%20href%3D%22cp_start.bmml%22%20alt%3D%22cp_start%22%20id%3D%2289%22/%3E</map>
+        <size>16</size>
+        <text>Log%20In</text>
+      </controlProperties>
+    </control>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::Label" x="579" y="236" w="-1" h="-1" measuredW="56" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Password</text>
+      </controlProperties>
+    </control>
+    <control controlID="100" controlTypeID="com.balsamiq.mockups::TextInput" x="650" y="233" w="115" h="-1" measuredW="75" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>**********</text>
+      </controlProperties>
+    </control>
+    <control controlID="102" controlTypeID="com.balsamiq.mockups::SubTitle" x="583" y="191" w="-1" h="-1" measuredW="145" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13576743</color>
+        <text>Please%20log%20in%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="103" controlTypeID="com.balsamiq.mockups::Title" x="535" y="113" w="-1" h="-1" measuredW="240" measuredH="43" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Control%20Panel</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -46,7 +46,7 @@ $(document).ready(function () {
 
   var keyesPressed = new Array();
 
-  $("html").keydown(function(e) {
+  $("html").keydown(function (e) {
     var pressed = codeTable[e.keyCode];
 
     if (pressed !== undefined) {
@@ -56,14 +56,14 @@ $(document).ready(function () {
     }
   });
 
-  $("html").keyup(function(e) {
+  $("html").keyup(function (e) {
     var pressed = codeTable[e.keyCode];
-    if (pressed !== undefined) {
-      $("#_" + pressed).css("color", "auto");
-      $("#_" + pressed).css("background-color", "auto");
+    //if (pressed !== undefined) {
+    $("#_" + pressed).css("color", "auto");
+    $("#_" + pressed).css("background-color", "auto");
 
-      keyesPressed.push(e.keyCode);
-      console.log(keyesPressed);
-    }
+    keyesPressed.push(e.keyCode);
+    console.log(keyesPressed);
+    //}
   });
 });

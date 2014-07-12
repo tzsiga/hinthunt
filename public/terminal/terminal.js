@@ -15,11 +15,11 @@ function nextCommand() {
   return commandHistory[commandCounter];
 }
 
-$("#command-enter").click(function(){
+$("#command-enter").click(function () {
   runCommand($("#command-line").val());
 });
 
-$("html").keydown(function(e){
+$("html").keydown(function (e) {
   switch (e.keyCode) {
     case 13: // enter
       runCommand($("#command-line").val());

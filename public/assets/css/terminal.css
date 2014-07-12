@@ -2,12 +2,12 @@ body {
   background-color: #FAFAFA;
 }
 
-.terminal {
+#terminal {
   margin: 60px auto;
   float: none;
 }
 
-.terminal .panel-body {
+#terminal .panel-body {
   height: 300px;
   overflow-y: scroll;
   color: white;
