@@ -15,5 +15,3 @@ var io = require('socket.io')(server);
 
 var hint = require('./routes/hint')(io);
 app.use('/hint', hint);
-
-var chat = require('./routes/chat')(io);

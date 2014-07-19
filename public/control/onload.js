@@ -13,8 +13,8 @@ console.log('Game timer started: ' + gameTime);
 // listening to node
 var socket = io();
 socket.on('hint-message', function (hint) {
-  console.log('Hint message received')
-  addCard(hint);
+  console.log('Hint message received');
+  (new HintCardCreator).addCard(hint);
 });
 
 // popup links
