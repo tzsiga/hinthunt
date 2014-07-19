@@ -39,7 +39,7 @@ function HintCardCreator() {
       .attr('class', 'card col-md-4 col-sm-6')
       .attr('id', 'h-' + hint.id)
       .append(
-        $(document.createElement('div')).attr('class', 'panel panel-default')
+        $(document.createElement('div')).attr('class', 'panel ' + (hint.critical ? 'panel-danger' : 'panel-default'))
           .append(
             $(document.createElement('div')).attr('class', 'panel-heading')
               .append(

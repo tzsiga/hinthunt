@@ -11,7 +11,7 @@ var server = http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + server.address().port);
 });
 
-var io = require('socket.io')(server);
+var socket = require('socket.io')(server);
 
-var hint = require('./routes/hint')(io);
+var hint = require('./routes/hint')(socket);
 app.use('/hint', hint);

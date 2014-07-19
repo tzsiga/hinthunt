@@ -4,19 +4,44 @@ var router = express.Router();
 
 var hintDB = require(path.join(__dirname, '../app/hint_db.js')).hintDB;
 
-module.exports = function(io) {
+module.exports = function(socket) {
+  socket.on('connect', function(data, from) {
+    sendCritical(socket);
+  });
+
   router.get('/:id?', function(req, res) {
-    var result = hintDB;
-
     if (req.params.id) {
-      result = result.filter(function (item) {
-        return item.id == req.params.id;
-      });
+      console.log('Loading hint ' + req.params.id);
+      var result = hintDB;
 
-      io.emit('hint-message', result[0]);
-      res.send(result[0]);
+      result = result.filter(function (item) {
+        if (item.id == req.params.id) {
+          socket.emit('hint', item);
+          res.send(item);
+        }
+      });
     }
   });
 
   return router;
 };
+
+function sendCritical(socket) {
+  console.log('Loading mission critical hints');
+  var critical = getCritical();
+
+  for (var i in critical) {
+    socket.emit('hint', critical[i]);
+    socket.send(critical[i]);
+  }
+}
+
+function getCritical() {
+  var result = hintDB;
+
+  result = result.filter(function (item) {
+    return item.critical == true;
+  });
+
+  return result;
+}

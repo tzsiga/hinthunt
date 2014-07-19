@@ -30,10 +30,17 @@
     },
     {
       id: 13,
-      title: 'Mission critical',
+      title: 'Mission critical 13',
       desc: 'Short description of the hint',
       critical: true,
       timeout: 40000
+    },
+    {
+      id: 117,
+      title: 'Mission critical 117',
+      desc: 'Short description of the hint',
+      critical: true,
+      timeout: 50000
     }
   ];
 })(exports);
