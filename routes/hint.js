@@ -11,6 +11,19 @@ module.exports = function(socket) {
 
   router.get('/:id?', function(req, res) {
     if (req.params.id) {
+      var result = hintDB;
+
+      result = result.filter(function (item) {
+        if (item.id == req.params.id) {
+          //res.setHeader('Content-Type', 'text/html');
+          res.send(item);
+        }
+      });
+    }
+  });
+
+  router.get('/emit/:id?', function(req, res) {
+    if (req.params.id) {
       console.log('Loading hint ' + req.params.id);
       var result = hintDB;
 

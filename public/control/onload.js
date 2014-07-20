@@ -20,15 +20,9 @@
   });
 
   // popup links
-  $(".fancy-html").fancybox({
+  $('.fancy-hint-popup').fancybox({
     fitToView: true,
-    //autoSize: true,
-    //height: '320px',
-    //width: '500px',
-    closeClick: false,
-    openEffect: 'none',
-    closeEffect: 'none',
-    type: 'iframe'
+    autoSize: true
   });
 
   // new hint link

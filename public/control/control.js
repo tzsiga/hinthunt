@@ -44,8 +44,15 @@ function HintCardCreator() {
             $(document.createElement('div')).attr('class', 'panel-heading')
               .append(
                 $(document.createElement('h3')).attr('class', 'panel-title')
-                  .html('<a href="popup.html" class="fancy-html">' + hint.title + '</a>')
-                )
+                  .append(
+                    $(document.createElement('a'))
+                      .attr({
+                        'class': 'fancy-hint-popup',
+                        'href': '#p-' + hint.id
+                      })
+                      .text(hint.title)
+                  )
+              )
           )
           .append(
             $(document.createElement('div')).attr('class', 'panel-body')
@@ -71,6 +78,17 @@ function HintCardCreator() {
                       .text('Send')
                       .click(hint.command)
                   )
+              )
+          )
+          .append(
+            $(document.createElement('div'))
+              .attr({
+                'id': 'p-' + hint.id,
+                'style': 'display: none; width: 500px;'
+              })
+              .html(
+                '<h2>' + hint.title + '</h2>' +
+                '<p>' + hint.desc + '</p>'
               )
           )
       );
