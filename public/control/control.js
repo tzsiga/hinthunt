@@ -1,4 +1,5 @@
-﻿var triggered = [];
+﻿var socket = io();
+var triggered = [];
 
 function HintCardCreator() {
   function addCard(hint) {
@@ -23,15 +24,6 @@ function HintCardCreator() {
     }
 
     return false;
-  }
-
-  function _startTimer(hint) {
-    $('#t-' + hint.id).countdown({
-      until: hint.timeout / 1000,
-      format: 'MS',
-      compact: true,
-      onExpiry: hint.command
-    });
   }
 
   function _createCard(hint) {
@@ -67,16 +59,16 @@ function HintCardCreator() {
                     $(document.createElement('button')).attr('class', 'btn btn-default skip')
                       .text('Skip')
                       .click(function () {
-                        $('.cards #h-' + hint.id).fadeOut(200, function () {
-                          $('#t-' + hint.id).countdown('destroy');
-                          $(this).remove();
-                        })
+                        _removeCard(hint);
                       })
                   )
                   .append(
                     $(document.createElement('button')).attr('class', 'btn btn-success send')
                       .text('Send')
-                      .click(hint.command)
+                      .click(function () {
+                        socket.emit('hint-show', hint);
+                        _removeCard(hint);
+                      })
                   )
               )
           )
@@ -92,6 +84,25 @@ function HintCardCreator() {
               )
           )
       );
+  }
+
+  function _startTimer(hint) {
+    $('#t-' + hint.id).countdown({
+      until: hint.timeout / 1000,
+      format: 'MS',
+      compact: true,
+      onExpiry: function() {
+        socket.emit('hint-show', hint);
+        _removeCard(hint);
+      }
+    });
+  }
+
+  function _removeCard(hint) {
+    $('.cards #h-' + hint.id).fadeOut(200, function () {
+      $('#t-' + hint.id).countdown('destroy');
+      $(this).remove();
+    });
   }
 
   return {
