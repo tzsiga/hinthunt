@@ -4,9 +4,26 @@ var router = express.Router();
 
 var hintDB = require(path.join(__dirname, '../app/hint_db.js')).hintDB;
 
-module.exports = function(io) {
-  io.on('connect', function(data, from) {
-    console.log('Loading mission critical hints');
+var triggered = [];
+
+function isTriggered(hint) {
+  for (var i in triggered) {
+    if (triggered[i] == hint)
+      return true;
+  }
+
+  return false;
+}
+
+function setHintTimeout(io, item) {
+  setTimeout(function () {
+    io.emit('hint-show', item);
+    console.log('Timed out [' + item.title + ', ' + item.timeout + ']');
+  }, item.timeout);
+}
+
+module.exports = function (io) {
+  io.on('connect', function (socket) {
     var critical = hintDB;
 
     critical = critical.filter(function (item) {
@@ -14,8 +31,19 @@ module.exports = function(io) {
     });
 
     for (var i in critical) {
-      io.emit('hint-emit', critical[i]);
-      io.send(critical[i]);
+      var item = critical[i];
+
+      if (isTriggered(item)) {
+        console.log('Already triggered: [' + item.title + '] - skipping!');
+      } else {
+        triggered.push(item);
+
+        io.emit('hint-emit', item);
+        io.send(item);
+
+        setHintTimeout(io, item);
+        console.log('Mission critical timer started [' + item.title + ', ' + item.timeout + ']');
+      }
     }
   });
 
@@ -25,7 +53,7 @@ module.exports = function(io) {
     });
   });
 
-  router.get('/:id?', function(req, res) {
+  router.get('/:id?', function (req, res) {
     if (req.params.id) {
       var result = hintDB;
 
@@ -38,20 +66,30 @@ module.exports = function(io) {
     }
   });
 
-  router.get('/emit/:id?', function(req, res) {
+  router.get('/emit/:id?', function (req, res) {
     if (req.params.id) {
       var result = hintDB;
 
       result = result.filter(function (item) {
         if (item.id == req.params.id) {
-          io.emit('hint-emit', item);
-          res.send(item);
+          if (isTriggered(item)) {
+            console.log('Already triggered: [' + item.title + '] - skipping!');
+            res.send(200);
+          } else {
+            triggered.push(item);
+
+            io.emit('hint-emit', item);
+            res.send(item);
+
+            setHintTimeout(io, item);
+            console.log('Timer started [' + item.title + ', ' + item.timeout + ']');
+          }
         }
       });
     }
   });
 
-  router.get('/show/:id?', function(req, res) {
+  router.get('/show/:id?', function (req, res) {
     if (req.params.id) {
       var result = hintDB;
 

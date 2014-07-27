@@ -1,29 +1,12 @@
 ﻿var socket = io();
-var triggered = [];
 
 function HintCardCreator() {
   function addCard(hint) {
-    if (_isTriggered(hint.id)) {
-      console.log('Already triggered: [' + hint.title + '] - skipping!');
-    } else {
-      triggered.push(hint.id);
-
-      $('.cards').append(
-        _createCard(hint).fadeIn(200, function () {
-          _startTimer(hint);
-          console.log('Hint [' + hint.title + '] triggered');
-        })
-      );
-    }
-  }
-
-  function _isTriggered(id) {
-    for (var hintId in triggered) {
-      if (triggered[hintId] == id)
-        return true;
-    }
-
-    return false;
+    $('.cards').append(
+      _createCard(hint).fadeIn(200, function () {
+        _startTimer(hint);
+      })
+    );
   }
 
   function _createCard(hint) {
@@ -92,7 +75,7 @@ function HintCardCreator() {
       format: 'MS',
       compact: true,
       onExpiry: function() {
-        socket.emit('hint-show', hint);
+//        socket.emit('hint-show', hint);
         _removeCard(hint);
       }
     });
