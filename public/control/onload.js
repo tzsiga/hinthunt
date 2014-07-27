@@ -13,7 +13,11 @@
   var socket = io();
   var hintCardCreator = new HintCardCreator();
 
-  socket.on('hint-emit', function (hint) {
+  socket.on('connect', function () {
+    socket.emit('StoreClientInfo', {customId: 'control'});
+  });
+
+  socket.on('HintEmit', function (hint) {
     console.log('Hint message received');
     hintCardCreator.addCard(hint);
   });

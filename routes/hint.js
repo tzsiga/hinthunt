@@ -4,11 +4,12 @@ var router = express.Router();
 
 var hintDB = require(path.join(__dirname, '../app/hint_db.js')).hintDB;
 
-var triggered = [];
+var clients = [];
+var triggeredHints = [];
 
 function isTriggered(hint) {
-  for (var i in triggered) {
-    if (triggered[i] == hint)
+  for (var i in triggeredHints) {
+    if (triggeredHints[i] == hint)
       return true;
   }
 
@@ -17,13 +18,35 @@ function isTriggered(hint) {
 
 function setHintTimeout(io, item) {
   setTimeout(function () {
-    io.emit('hint-show', item);
-    console.log('Timed out [' + item.title + ', ' + item.timeout + ']');
+    io.emit('HintShow', item);
+    console.log('Timed out: [' + item.title + ', ' + item.timeout + ']');
   }, item.timeout);
+}
+
+function sendItem(item, io, res) {
+  if (isTriggered(item)) {
+    console.log('Already triggered: [' + item.title + '] - skipping!');
+  } else {
+    triggeredHints.push(item);
+
+    io.emit('HintEmit', item);
+    res.send(item);
+
+    setHintTimeout(io, item);
+    console.log('Timer started: [' + item.title + ', ' + item.timeout + ']');
+  }
 }
 
 module.exports = function (io) {
   io.on('connect', function (socket) {
+
+    socket.on('StoreClientInfo', function (data) {
+      clients.push({
+        customId: data.customId,
+        clientId: socket.id
+      });
+    });
+
     var critical = hintDB;
 
     critical = critical.filter(function (item) {
@@ -32,24 +55,25 @@ module.exports = function (io) {
 
     for (var i in critical) {
       var item = critical[i];
-
-      if (isTriggered(item)) {
-        console.log('Already triggered: [' + item.title + '] - skipping!');
-      } else {
-        triggered.push(item);
-
-        io.emit('hint-emit', item);
-        io.send(item);
-
-        setHintTimeout(io, item);
-        console.log('Mission critical timer started [' + item.title + ', ' + item.timeout + ']');
-      }
+      sendItem(item, io, io);
     }
   });
 
   io.on('connection', function (socket) {
-    socket.on('hint-show', function (hint) {
-      io.emit('hint-show', hint);
+    socket.on('HintShow', function (hint) {
+      io.emit('HintShow', hint);
+    });
+
+    socket.on('disconnect', function () {
+      for (var i = 0, len = clients.length; i < len; ++i) {
+        var actual = clients[i];
+
+        if (actual.clientId == socket.id) {
+          console.log('Client disconnected: ' + actual.customId);
+          clients.splice(i, 1);
+          break;
+        }
+      }
     });
   });
 
@@ -57,7 +81,7 @@ module.exports = function (io) {
     if (req.params.id) {
       var result = hintDB;
 
-      result = result.filter(function (item) {
+      result.filter(function (item) {
         if (item.id == req.params.id) {
           //res.setHeader('Content-Type', 'text/html');
           res.send(item);
@@ -70,20 +94,9 @@ module.exports = function (io) {
     if (req.params.id) {
       var result = hintDB;
 
-      result = result.filter(function (item) {
+      result.filter(function (item) {
         if (item.id == req.params.id) {
-          if (isTriggered(item)) {
-            console.log('Already triggered: [' + item.title + '] - skipping!');
-            res.send(200);
-          } else {
-            triggered.push(item);
-
-            io.emit('hint-emit', item);
-            res.send(item);
-
-            setHintTimeout(io, item);
-            console.log('Timer started [' + item.title + ', ' + item.timeout + ']');
-          }
+          sendItem(item, io, res);
         }
       });
     }
@@ -93,9 +106,9 @@ module.exports = function (io) {
     if (req.params.id) {
       var result = hintDB;
 
-      result = result.filter(function (item) {
+      result.filter(function (item) {
         if (item.id == req.params.id) {
-          io.emit('hint-show', item);
+          io.emit('HintShow', item);
           res.send(item);
         }
       });

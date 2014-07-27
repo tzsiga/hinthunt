@@ -3,13 +3,13 @@
 function HintCardCreator() {
   function addCard(hint) {
     $('.cards').append(
-      _createCard(hint).fadeIn(200, function () {
-        _startTimer(hint);
+      createCard(hint).fadeIn(200, function () {
+        startTimer(hint);
       })
     );
   }
 
-  function _createCard(hint) {
+  function createCard(hint) {
     return $(document.createElement('div'))
       .attr('class', 'card col-md-4 col-sm-6')
       .attr('id', 'h-' + hint.id)
@@ -42,7 +42,7 @@ function HintCardCreator() {
                     $(document.createElement('button')).attr('class', 'btn btn-default skip')
                       .text('Skip')
                       .click(function () {
-                        _removeCard(hint);
+                        removeCard(hint);
                       })
                   )
                   .append(
@@ -50,7 +50,7 @@ function HintCardCreator() {
                       .text('Send')
                       .click(function () {
                         socket.emit('hint-show', hint);
-                        _removeCard(hint);
+                        removeCard(hint);
                       })
                   )
               )
@@ -69,19 +69,19 @@ function HintCardCreator() {
       );
   }
 
-  function _startTimer(hint) {
+  function startTimer(hint) {
     $('#t-' + hint.id).countdown({
       until: hint.timeout / 1000,
       format: 'MS',
       compact: true,
-      onExpiry: function() {
+      onExpiry: function () {
 //        socket.emit('hint-show', hint);
-        _removeCard(hint);
+        removeCard(hint);
       }
     });
   }
 
-  function _removeCard(hint) {
+  function removeCard(hint) {
     $('.cards #h-' + hint.id).fadeOut(200, function () {
       $('#t-' + hint.id).countdown('destroy');
       $(this).remove();
