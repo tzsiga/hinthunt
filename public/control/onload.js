@@ -14,7 +14,7 @@
   var hintCardCreator = new HintCardCreator();
 
   socket.on('connect', function () {
-    socket.emit('StoreClientInfo', {customId: 'control'});
+    socket.emit('StoreClient', {customId: 'control'});
   });
 
   socket.on('HintEmit', function (hint) {

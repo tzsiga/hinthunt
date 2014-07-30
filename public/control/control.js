@@ -49,7 +49,7 @@ function HintCardCreator() {
                     $(document.createElement('button')).attr('class', 'btn btn-success send')
                       .text('Send')
                       .click(function () {
-                        socket.emit('hint-show', hint);
+                        socket.emit('HintShow', hint);
                         removeCard(hint);
                       })
                   )
