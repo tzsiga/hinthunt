@@ -42,6 +42,7 @@ function HintCardCreator() {
                     $(document.createElement('button')).attr('class', 'btn btn-default skip')
                       .text('Skip')
                       .click(function () {
+                        socket.emit('HintSkip', hint);
                         removeCard(hint);
                       })
                   )

@@ -6,6 +6,7 @@ var hintDB = require(path.join(__dirname, '../app/hint_db.js')).hintDB;
 
 var clients = [];
 var triggeredHints = [];
+var timeouts = {};
 
 module.exports = function (io) {
   io.on('connect', function (socket) {
@@ -20,6 +21,12 @@ module.exports = function (io) {
   io.on('connection', function (socket) {
     socket.on('disconnect', function () {
       removeClient(socket);
+    });
+
+    socket.on('HintSkip', function(hint) {
+      clearTimeout(timeouts[hint.id]);
+      delete timeouts[hint.id];
+      console.log('Skipping: ' + hint.title);
     });
   });
 
@@ -99,7 +106,7 @@ function isTriggered(hint) {
 }
 
 function setHintTimeout(item, io) {
-  setTimeout(function () {
+  timeouts[item.id] = setTimeout(function () {
     io.emit('HintShow', item);
     console.log('Timed out: [' + item.title + ', ' + item.timeout + ']');
   }, item.timeout);
