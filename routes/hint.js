@@ -4,14 +4,13 @@ var router = express.Router();
 
 var hintDB = require(path.join(__dirname, '../app/hint_db.js')).hintDB;
 
-var clients = [];
-var triggeredHints = [];
+var clients = {};
 var timeouts = {};
 
 module.exports = function (io) {
   io.on('connect', function (socket) {
     socket.on('StoreClient', function (data) {
-      storeClient(data, socket);
+      storeClient(socket, data);
       if (data.customId == 'control') {
         sendCritical(io);
       }
@@ -23,10 +22,13 @@ module.exports = function (io) {
       removeClient(socket);
     });
 
-    socket.on('HintSkip', function(hint) {
-      clearTimeout(timeouts[hint.id]);
-      delete timeouts[hint.id];
-      console.log('Skipping: ' + hint.title);
+    socket.on('HintShow', function(item) {
+      io.emit('HintShow', item);
+      //clearHintTimeout(item);
+    });
+
+    socket.on('HintSkip', function(item) {
+      clearHintTimeout(item);
     });
   });
 
@@ -45,32 +47,21 @@ module.exports = function (io) {
   return router;
 };
 
-function storeClient(data, socket) {
-  clients.push({
-    customId: data.customId,
-    clientId: socket.id
-  });
-
+function storeClient(socket, data) {
+  clients[socket.id] = data.customId;
   console.log('Client connceted: ' + data.customId);
 }
 
 function removeClient(socket) {
-  for (var i in clients) {
-    var actual = clients[i];
-    if (actual.clientId == socket.id) {
-      clients.splice(i, 1);
-      console.log('Client disconnected: ' + actual.customId);
-      break;
-    }
-  }
+  console.log('Client disconnected: ' + clients[socket.id]);
+  delete clients[socket.id];
 }
 
 function sendCritical(io) {
   var critical = getCritical();
 
   for (var j in critical) {
-    var item = critical[j];
-    sendItem(item, io, io);
+    sendItem(critical[j], io, io);
   }
 }
 
@@ -86,8 +77,6 @@ function sendItem(item, io, res) {
   if (isTriggered(item)) {
     console.log('Already triggered: [' + item.title + '] - skipping!');
   } else {
-    triggeredHints.push(item);
-
     io.emit('HintEmit', item);
     res.send(item);
 
@@ -96,10 +85,10 @@ function sendItem(item, io, res) {
   }
 }
 
-function isTriggered(hint) {
-  for (var i in triggeredHints) {
-    if (triggeredHints[i] == hint)
-      return true;
+function isTriggered(item) {
+  for (var id in timeouts) {
+    if (id == item.id)
+      return true
   }
 
   return false;
@@ -110,4 +99,10 @@ function setHintTimeout(item, io) {
     io.emit('HintShow', item);
     console.log('Timed out: [' + item.title + ', ' + item.timeout + ']');
   }, item.timeout);
+}
+
+function clearHintTimeout(item) {
+  clearTimeout(timeouts[item.id]);
+  delete timeouts[item.id];
+  console.log('Timeout deleted: [' + item.title + ', ' + item.timeout + ']');
 }

@@ -76,7 +76,6 @@ function HintCardCreator() {
       format: 'MS',
       compact: true,
       onExpiry: function () {
-//        socket.emit('hint-show', hint);
         removeCard(hint);
       }
     });
