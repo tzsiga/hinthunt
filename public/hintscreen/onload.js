@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-  // listening to node
   var socket = io();
 
   socket.on('connect', function () {

@@ -22,27 +22,21 @@
   <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
   <script type="text/javascript" src="control.js"></script>
 </head>
-<body id="control">
+<body id="login">
 
   <div class="container">
 
-    <div class="upper-hud row col-md-12">
-      <button type="button" class="btn btn-danger end">End game</button>
+    <form action="" method="post" accept-charset="utf-8" class="form-signin" role="form">
       <h1>Control Panel</h1>
-    </div>
+      <br/>
 
-    <div class="upper-hud row col-md-12">
-      <h3 class="col-sm-6 col-xs-12">Game: Yellow Submarine</h3>
-      <h3 class="col-sm-4 col-xs-12">Time left: <span class="game-time"></span></h3>
-      <div class="col-sm-2 col-xs-12 text-right">
-        <button type="button" class="btn btn-primary hint">+ Hint</button>
+      <div id="flash-msg" class="alert alert-danger">
+        Please enter the password!
       </div>
-    </div>
 
-    <div class="row col-md-12 cards">
-    </div>
-
-    <script type="text/javascript" src="onload.js"></script>
+      <input type="password" name="given-password" value="" class="form-control" placeholder="password"  />
+      <button name="login" type="submit" class="btn btn-lg btn-primary btn-block" value="Bejelentkezés" >Login</button>
+    </form>
   </div>
 
 </body>

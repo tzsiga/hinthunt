@@ -24,7 +24,7 @@ module.exports = function (io) {
 
     socket.on('HintShow', function(item) {
       io.emit('HintShow', item);
-      //clearHintTimeout(item);
+      clearHintTimeout(item);
     });
 
     socket.on('HintSkip', function(item) {
