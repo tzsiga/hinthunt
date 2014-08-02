@@ -26,6 +26,60 @@
 
   <div class="container">
 
+    <div class="upper-hud row col-md-12">
+      <div class="dropdown end">
+        <button class="btn btn-default dropdown-toggle" type="button" id="system-menu" data-toggle="dropdown">
+          System
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="system-menu">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="">Log out</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="">Change password</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="">Restart</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="">Shut down</a></li>
+        </ul>
+      </div>
+      <h1>Control Panel</h1>
+    </div>
+    <br/>
+
+    <form>
+      <div class="row col-sm-12">
+        <div class="col-sm-4">
+          <select class="form-control">
+            <option disabled selected>Select action</option>
+            <option>Game</option>
+            <option>System test</option>
+          </select>
+        </div>
+
+        <div class="col-sm-4">
+          <select class="form-control">
+            <option disabled selected>Select game</option>
+            <option>Deep Dive</option>
+            <option>Yellow Submarine</option>
+          </select>
+        </div>
+
+        <div class="col-sm-4">
+          <select class="form-control">
+            <option disabled selected>Select language</option>
+            <option>English</option>
+            <option>German</option>
+            <option>Hungarian</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row col-sm-12">
+        <div class="col-sm-2 col-sm-offset-5">
+          <button name="start" type="submit" class="btn btn-lg btn-success btn-block" value="start">Start</button>
+        </div>
+      </div>
+    </form>
+
   </div>
 
 </body>

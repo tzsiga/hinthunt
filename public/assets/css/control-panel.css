@@ -1,16 +1,18 @@
 body#login {
-  padding-top: 40px;
-  padding-bottom: 40px;
   background-color: #eee;
 }
 
-body#login .form-signin {
+body#login {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
 
-body#login .form-signin .form-control {
+body#login #flash-msg {
+  margin-top: 40px;
+}
+
+body#login .form-control {
   position: relative;
   height: auto;
   -webkit-box-sizing: border-box;
@@ -20,34 +22,35 @@ body#login .form-signin .form-control {
   font-size: 16px;
 }
 
-body#login .form-signin .form-control:focus {
+body#login .form-control:focus {
   z-index: 2;
 }
 
-body#login .form-signin input[type="password"] {
+body#login input[type="password"] {
   margin-bottom: 10px;
 }
 
 body#login .btn-primary {
   text-transform: capitalize;
+  margin-top: 15px;
 }
 
-body#control .upper-hud {
+.upper-hud {
   position: relative;
 }
 
-body#control .upper-hud button.end {
+.upper-hud .end {
   position: absolute;
   right: 30px;
   top: 25px;
 }
 
-body#control .upper-hud button.hint {
+.upper-hud button.hint {
   margin-top: 15px;
 }
 
 @media (max-width: 992px) {
-  body#control .upper-hud button.end {
+  .upper-hud .end {
     top: 25px;
   }
 }
@@ -95,4 +98,8 @@ body#control .card button.send {
 
 body#control .card button.skip {
   right: 95px;
+}
+
+body#menu .btn-lg {
+  margin-top: 30px;
 }
