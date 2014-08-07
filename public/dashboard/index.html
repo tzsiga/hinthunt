@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap-theme.css" />
   <link rel="stylesheet" type="text/css" href="../assets/plugin/jqwidgets/jqx.base.css" />"
   <link rel="stylesheet" type="text/css" href="../assets/css/dashboard.css" />
+  <script type="text/javascript" src="../socket.io/socket.io.js"></script>
   <script type="text/javascript" src="../assets/plugin/jquery/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/jqwidgets/jqxcore.js"></script>
@@ -18,75 +19,74 @@
   <script type="text/javascript" src="../assets/plugin/jqwidgets/jqxbuttons.js"></script>
   <script type="text/javascript" src="../assets/plugin/jqwidgets/jqxslider.js"></script>
 </head>
-<body>
+<body id="dashboard">
 
-  <div class="container">
-
-    <div class="col-md-4">
-      <div id="pressure-gauge">
-        <div>
-          <div id='gauge'></div>
-          <div id='slider'></div>
-        </div>
+  <div id="upper-left">
+    <div id="pressure-gauge">
+      <div>
+        <div id='gauge'></div>
+        <div class="digital-panel" id="gauge-value"></div>
       </div>
     </div>
+    <script type="text/javascript" src="gauge.js"></script>
+  </div>
 
-    <div class="col-md-2">
-      <div id="linear-gauge"></div>
-    </div>
-
-    <div class="col-md-6">
-      <div id="digital-clock"></div>
-      <div id="keyboard">
-        <div class="row">
-          <span id="_Q">Q</span>
-          <span id="_W">W</span>
-          <span id="_E">E</span>
-          <span id="_R">R</span>
-          <span id="_T">T</span>
-          <span id="_Z">Z</span>
-          <span id="_U">U</span>
-          <span id="_I">I</span>
-          <span id="_O">O</span>
-          <span id="_P">P</span>
-        </div>
-        <div class="row">
-          <span id="_A">A</span>
-          <span id="_S">S</span>
-          <span id="_D">D</span>
-          <span id="_F">F</span>
-          <span id="_G">G</span>
-          <span id="_H">H</span>
-          <span id="_J">J</span>
-          <span id="_K">K</span>
-          <span id="_L">L</span>
-          <span id="_empty"></span>
-        </div>
-        <div class="row">
-          <span id="_empty"></span>
-          <span id="_Y">Y</span>
-          <span id="_X">X</span>
-          <span id="_C">C</span>
-          <span id="_V">V</span>
-          <span id="_B">B</span>
-          <span id="_N">N</span>
-          <span id="_M">M</span>
-          <span id="_empty"></span>
-          <span id="_empty"></span>
-        </div>
-      </div>
-
+  <div id="upper-right">
+    <div id="icons" class="digital-panel">
+      <span id="icon-cross"><img src="../assets/image/icons/icon-cross-green.png" style="width: 200px" alt="" /></span>
+      <span id="icon-gauge"><img src="../assets/image/icons/icon-gauge-green.png" style="width: 180px; margin-left: 30px" alt="" /></span>
+      <span id="icon-key"><img src="../assets/image/icons/icon-key-green.png" style="width: 200px" alt="" /></span>
+      <span id="icon-torpedo"><img src="../assets/image/icons/icon-torpedo-green.png" style="width: 240px" alt="" /></span>
     </div>
   </div>
 
-  <script type="text/javascript" src="gauge.js"></script>
+  <div id="bottom-left">
+    <div class="digital-panel">
+      <span id="deg">16.5&deg;</span>
+      <span id="long">39.1<span class="digital-panel-unit"> m</span></span>
+    </div>
+  </div>
 
-  <script type="text/javascript">
-    var d = new Date();
-    $("#digital-clock").html(d.getHours() + ":" + d.getMinutes());
-  </script>
+  <div id="bottom-right">
+    <div id="enigma-keyboard">
+      <div class="row">
+        <span id="_Q">Q</span>
+        <span id="_W">W</span>
+        <span id="_E">E</span>
+        <span id="_R">R</span>
+        <span id="_T">T</span>
+        <span id="_Z">Z</span>
+        <span id="_U">U</span>
+        <span id="_I">I</span>
+        <span id="_O">O</span>
+        <span id="_P">P</span>
+      </div>
+      <div class="row">
+        <span id="_A">A</span>
+        <span id="_S">S</span>
+        <span id="_D">D</span>
+        <span id="_F">F</span>
+        <span id="_G">G</span>
+        <span id="_H">H</span>
+        <span id="_J">J</span>
+        <span id="_K">K</span>
+        <span id="_L">L</span>
+      </div>
+      <div class="row">
+        <span id="_Y">Y</span>
+        <span id="_X">X</span>
+        <span id="_C">C</span>
+        <span id="_V">V</span>
+        <span id="_B">B</span>
+        <span id="_N">N</span>
+        <span id="_M">M</span>
+        <span id="_empty"></span>
+      </div>
+    </div>
+    <script type="text/javascript" src="enigma.js"></script>
+  </div>
 
-  <script type="text/javascript" src="enigma.js"></script>
+  <script type="text/javascript" src="onload.js"></script>
 
 </body>
 </html>

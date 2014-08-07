@@ -24,9 +24,9 @@
 </head>
 <body id="login">
 
-  <div class="container">
+  <div class="container col-xs-8 col-sm-5 col-md-4 col-lg-3">
 
-    <form action="" method="post" accept-charset="utf-8" class="col-sm-6" role="form">
+    <form id="login-form" action="" method="post" accept-charset="utf-8" role="form">
       <h1>Control Panel</h1>
 
       <div id="flash-msg" class="alert alert-danger">
@@ -35,9 +35,25 @@
 
       <input type="password" name="given-password" value="" class="form-control" placeholder="password" />
       <button name="login" type="submit" class="btn btn-lg btn-primary btn-block" value="login">Login</button>
-
     </form>
   </div>
+
+  <script type="javascript">
+
+      $('#login-form').submit(function(e) {
+        return false;
+        /*
+        e.preventDefault();
+        alert('na');
+        /*
+        var $this = $(this);
+        $.post($this.attr("action"), $this.serialize(), function (data) {
+          console.log('ez jött: ' + data);
+        }, 'json');
+        */
+      });
+
+  </script>
 
 </body>
 </html>

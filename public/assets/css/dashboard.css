@@ -1,57 +1,93 @@
 @font-face {
   font-family: 'Digital-7';
-  src: url('../font/digital-7.eot?') format('eot'), 
-       url('../font/digital-7.woff') format('woff'), 
-       url('../font/digital-7.ttf')  format('truetype'),
-       url('../font/digital-7.svg#Digital-7') format('svg');
+  src: url('../plugin/fonts/digital-7.eot?') format('eot'),
+       url('../plugin/fonts/digital-7.woff') format('woff'),
+       url('../plugin/fonts/digital-7.ttf')  format('truetype'),
+       url('../plugin/fonts/digital-7.svg#Digital-7') format('svg');
 }
 
-body {
+body#dashboard {
   font-family: helvetica, arial, sans-serif;
+  background-color: #222222;
+  padding: 0;
 }
 
-#keyboard {
-  margin: 30px;
-  width: 430px;
-}
-
-#keyboard > .row > span {
+#upper-left, #upper-right, #bottom-left, #bottom-right {
+  padding: 30px;
   display: inline-block;
-  height: 28px;
-  width: 28px;
-  border: 1px solid grey;
-  background-color: lightgrey;
+  position: absolute;
+  vertical-align: top;
+}
+
+#upper-left, #upper-right {
+  top: 0;
+}
+
+#bottom-left, #bottom-right {
+  bottom: 0;
+}
+
+#upper-left, #bottom-left {
+  left: 0;
+  text-align: left;
+}
+
+#upper-right, #bottom-right {
+  right: 0;
+  text-align: right;
+}
+
+#enigma-keyboard {
+  margin: 30px;
+}
+
+#enigma-keyboard > .row {
   text-align: center;
-  padding-top: 3px;
+}
+
+#enigma-keyboard > .row > span {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  border: 1px solid lightgrey;
+  background-color: black;
+  color: lightgrey;
+  text-align: center;
+  padding-top: 8px;
   vertical-align: middle;
   font-weight: bold;
-  margin: 4px;
+  font-size: 44px;
+  margin: 5px;
+  border-radius: 50%;
 }
 
-#pressure-gauge {
-  position: relative;
-  height: 380px;
-  margin: 30px;
+#enigma-keyboard > .row > span.key-pressed {
+  border: 1px solid white;
+  background-color: #fff9a0;
+  color: black;
 }
 
-#pressure-gauge #slider {
-  position: absolute;
-  top: 250px;
-  left: 93px;
+text.jqx-gauge-label {
+  fill: white;
+  font-size: 18px;
 }
 
-#linear-gauge {
-  margin: 30px;
+#gauge-value {
+  margin-top: -200px;
 }
 
-#digital-clock {
-  width: 200px;
+.digital-panel {
   text-align: center;
   font-family: 'Digital-7';
   font-size: 100px;
-  background-color: darkgreen;
+  /*background-color: darkgreen;*/
   color: lawngreen;
   margin: 30px;
   padding: 0;
   line-height: 1;
+}
+
+.digital-panel-unit {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 60px;
 }

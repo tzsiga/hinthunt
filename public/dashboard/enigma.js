@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var codeTable = new Array();
+  var codeTable = [];
   /*
   codeTable[32] = "Space";
   codeTable[37] = "Left";
@@ -44,26 +44,24 @@ $(document).ready(function () {
   codeTable[89] = "Y";
   codeTable[90] = "Z";
 
-  var keyesPressed = new Array();
+  var keyesPressed = [];
 
-  $("html").keydown(function (e) {
-    var pressed = codeTable[e.keyCode];
+  $('html')
+    .keydown(function (e) {
+      var pressed = codeTable[e.keyCode];
 
-    if (pressed !== undefined) {
-      e.preventDefault();
-      $("#_" + pressed).css("color", "white");
-      $("#_" + pressed).css("background-color", "red");
-    }
-  });
+      if (pressed !== undefined) {
+        e.preventDefault();
+        $("#_" + pressed).addClass('key-pressed');
+      }
+    })
+    .keyup(function (e) {
+      var pressed = codeTable[e.keyCode];
 
-  $("html").keyup(function (e) {
-    var pressed = codeTable[e.keyCode];
-    //if (pressed !== undefined) {
-    $("#_" + pressed).css("color", "auto");
-    $("#_" + pressed).css("background-color", "auto");
-
-    keyesPressed.push(e.keyCode);
-    console.log(keyesPressed);
-    //}
-  });
+      if (pressed !== undefined) {
+        $("#_" + pressed).removeClass('key-pressed');
+        keyesPressed.push(e.keyCode);
+        //console.log(keyesPressed);
+      }
+    });
 });

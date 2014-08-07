@@ -4,13 +4,11 @@ var router = express.Router();
 
 var hintDB = require(path.join(__dirname, '../app/hint_db.js')).hintDB;
 
-var clients = {};
 var timeouts = {};
 
 module.exports = function (io) {
   io.on('connect', function (socket) {
     socket.on('StoreClient', function (data) {
-      storeClient(socket, data);
       if (data.customId == 'control') {
         sendCritical(io);
       }
@@ -18,10 +16,6 @@ module.exports = function (io) {
   });
 
   io.on('connection', function (socket) {
-    socket.on('disconnect', function () {
-      removeClient(socket);
-    });
-
     socket.on('HintShow', function(item) {
       io.emit('HintShow', item);
       clearHintTimeout(item);
@@ -34,9 +28,7 @@ module.exports = function (io) {
 
   router.get('/emit/:id?', function (req, res) {
     if (req.params.id) {
-      var result = hintDB;
-
-      result.filter(function (item) {
+      hintDB.filter(function (item) {
         if (item.id == req.params.id) {
           sendItem(item, io, res);
         }
@@ -47,16 +39,6 @@ module.exports = function (io) {
   return router;
 };
 
-function storeClient(socket, data) {
-  clients[socket.id] = data.customId;
-  console.log('Client connceted: ' + data.customId);
-}
-
-function removeClient(socket) {
-  console.log('Client disconnected: ' + clients[socket.id]);
-  delete clients[socket.id];
-}
-
 function sendCritical(io) {
   var critical = getCritical();
 
@@ -66,9 +48,7 @@ function sendCritical(io) {
 }
 
 function getCritical() {
-  var critical = hintDB;
-
-  return critical.filter(function (item) {
+  return hintDB.filter(function (item) {
     return item.critical == true;
   });
 }
