@@ -2,7 +2,7 @@
   var socket = io();
 
   socket.on('connect', function () {
-    socket.emit('StoreClient', {customId: 'hintscreen'});
+    socket.emit('StoreClient', { customId: 'hintscreen' });
   });
 
   socket.on('HintShow', function (hint) {

@@ -1,8 +1,4 @@
-﻿var express = require('express');
-var path = require('path');
-var router = express.Router();
-
-var clients = {};
+﻿var clients = {};
 
 module.exports = function (io) {
   io.on('connect', function (socket) {
@@ -17,7 +13,7 @@ module.exports = function (io) {
     });
   });
 
-  return router;
+  return clients;
 };
 
 function storeClient(socket, data) {

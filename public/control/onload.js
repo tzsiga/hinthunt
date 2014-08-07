@@ -14,7 +14,7 @@
   var hintCardCreator = new HintCardCreator();
 
   socket.on('connect', function () {
-    socket.emit('StoreClient', {customId: 'control'});
+    socket.emit('StoreClient', { customId: 'control' });
   });
 
   socket.on('HintEmit', function (hint) {
@@ -27,7 +27,7 @@
     autoSize: true
   });
 
-  $('.hint').click(function () {
+  $('.hint').on('click', function () {
     console.log('New hint button pressed');
   });
 });

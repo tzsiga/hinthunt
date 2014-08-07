@@ -16,7 +16,7 @@ var server = http.createServer(app).listen(app.get('port'), function () {
 
 var io = require('socket.io')(server);
 
-var client = require('./routes/clients')(io);
+var clients = require('./app/clients')(io);
 
 var hint = require('./routes/hint')(io);
 app.use('/hint', hint);
