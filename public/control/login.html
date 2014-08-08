@@ -7,52 +7,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap-theme.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
-  <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" media="screen" />
-  <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" media="screen" />
   <link rel="stylesheet" type="text/css" href="../assets/css/control-panel.css" />
   <script type="text/javascript" src="../socket.io/socket.io.js"></script>
   <script type="text/javascript" src="../assets/plugin/jquery/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../assets/plugin/countdown/jquery.plugin.min.js"></script>
-  <script type="text/javascript" src="../assets/plugin/countdown/jquery.countdown.min.js"></script>
-  <script type="text/javascript" src="../assets/plugin/fancybox/jquery.fancybox.js?v=2.1.5"></script>
-  <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-  <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-  <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-  <script type="text/javascript" src="control.js"></script>
 </head>
 <body id="login">
 
   <div class="container col-xs-8 col-sm-5 col-md-4 col-lg-3">
 
-    <form id="login-form" action="" method="post" accept-charset="utf-8" role="form">
+    <form id="login-form" action="login" method="post" accept-charset="utf-8" role="form">
       <h1>Control Panel</h1>
 
-      <div id="flash-msg" class="alert alert-danger">
+      <div id="flash-msg" class="alert alert-warning">
         Please enter the password!
       </div>
 
-      <input type="password" name="given-password" value="" class="form-control" placeholder="password" />
-      <button name="login" type="submit" class="btn btn-lg btn-primary btn-block" value="login">Login</button>
+      <input id="given-password" class="form-control" name="given-password" type="password" value="" placeholder="password" />
+      <button id="login-button" class="btn btn-lg btn-primary btn-block" name="login" type="submit" value="login">Login</button>
     </form>
   </div>
 
-  <script type="javascript">
+  <script type="text/javascript">
+    $(document).ready(function () {
 
-      $('#login-form').submit(function(e) {
-        return false;
-        /*
-        e.preventDefault();
-        alert('na');
-        /*
-        var $this = $(this);
-        $.post($this.attr("action"), $this.serialize(), function (data) {
-          console.log('ez jött: ' + data);
+      $('#login-button').click(function(event) {
+        event.preventDefault();
+        var form = $('#login-form');
+
+        $.post(form.attr("action"), form.serialize(), function (access) {
+          console.log('Access: ' + access);
+
+          if (access) {
+            window.location.replace('/control/menu.html');
+          } else {
+            $('#flash-msg')
+              .text('Invalid password!')
+              .removeClass('alert-warning')
+              .addClass('alert-danger');
+            $('#given-password').val('');
+          }
         }, 'json');
-        */
       });
-
+    });
   </script>
 
 </body>

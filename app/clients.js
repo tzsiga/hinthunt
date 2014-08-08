@@ -22,6 +22,8 @@ function storeClient(socket, data) {
 }
 
 function removeClient(socket) {
-  console.log('Client disconnected: ' + clients[socket.id]);
-  delete clients[socket.id];
+  if (clients[socket.id] !== undefined) {
+    console.log('Client disconnected: ' + clients[socket.id]);
+    delete clients[socket.id];
+  }
 }
