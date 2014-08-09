@@ -66,8 +66,10 @@
   });
 
   function setGaugeValue(value) {
-    $('#gauge').jqxGauge('value', value);
-    $('#gauge-value').text(value);
+    requestID = window.requestAnimationFrame(function () {
+      $('#gauge').jqxGauge('value', value);
+      $('#gauge-value').text(value);
+    });
   }
 
   var valves = {
