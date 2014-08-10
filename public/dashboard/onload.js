@@ -1,4 +1,18 @@
 ﻿$(document).ready(function () {
+
+  $.fn.preload = function () {
+    this.each(function () {
+      $('<img/>')[0].src = this;
+    });
+  };
+
+  $([
+    '../assets/image/icons/icon-cross-green.png',
+    '../assets/image/icons/icon-gauge-green.png',
+    '../assets/image/icons/icon-key-green.png',
+    '../assets/image/icons/icon-torpedo-green.png'
+  ]).preload();
+
   var socket = io();
 
   socket.on('connect', function () {
@@ -66,11 +80,28 @@
   });
 
   function setGaugeValue(value) {
-    requestID = window.requestAnimationFrame(function () {
-      $('#gauge').jqxGauge('value', value);
-      $('#gauge-value').text(value);
-    });
+    $('#gauge-value').text(value);
+    //$('#gauge').jqxGauge('value', value);
   }
+
+  /*
+  $('#gauge-value').bind("DOMSubtreeModified", function () {
+    setTimeout(function () {
+      var pressure = $('#gauge-value').text();
+      $('#gauge').jqxGauge('value', pressure);
+    }, 500);
+  });
+  //*/
+
+  ///*
+  setInterval(function () {
+    var pressure = $('#gauge-value').text();
+
+    if ($('#gauge').jqxGauge('value') != pressure) {
+      $('#gauge').jqxGauge('value', pressure);
+    }
+  }, 500);
+  //*/
 
   var valves = {
     I: 2,
@@ -86,12 +117,12 @@
   };
 
   setGaugeValue(
-      valves.I +
-      valves.II +
-      valves.IV +
-      valves.VI +
-      valves.VIII +
-      valves.IX +
-      valves.X
+    valves.I +
+    valves.II +
+    valves.IV +
+    valves.VI +
+    valves.VIII +
+    valves.IX +
+    valves.X
   );
 });

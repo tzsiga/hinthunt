@@ -6,6 +6,7 @@ $(document).ready(function () {
   codeTable[38] = "Up";
   codeTable[39] = "Right";
   codeTable[40] = "Down";
+  */
   codeTable[48] = "0";
   codeTable[49] = "1";
   codeTable[50] = "2";
@@ -16,7 +17,6 @@ $(document).ready(function () {
   codeTable[55] = "7";
   codeTable[56] = "8";
   codeTable[57] = "9";
-  */
   codeTable[65] = "A";
   codeTable[66] = "B";
   codeTable[67] = "C";
@@ -44,6 +44,45 @@ $(document).ready(function () {
   codeTable[89] = "Y";
   codeTable[90] = "Z";
 
+  var translateTable = [];
+
+  translateTable["0"] = "R";
+  translateTable["1"] = "2";
+  translateTable["2"] = "H";
+  translateTable["3"] = "A";
+  translateTable["4"] = "N";
+  translateTable["5"] = "X";
+  translateTable["6"] = "O";
+  translateTable["7"] = "U";
+  translateTable["8"] = "E";
+  translateTable["9"] = "P";
+  translateTable["A"] = "6";
+  translateTable["B"] = "8";
+  translateTable["C"] = "5";
+  translateTable["D"] = "7";
+  translateTable["E"] = "1";
+  translateTable["F"] = "4";
+  translateTable["G"] = "1";
+  translateTable["H"] = "9";
+  translateTable["I"] = "8";
+  translateTable["J"] = "1";
+  translateTable["K"] = "2";
+  translateTable["L"] = "7";
+  translateTable["M"] = "9";
+  translateTable["N"] = "0";
+  translateTable["O"] = "5";
+  translateTable["P"] = "0";
+  translateTable["Q"] = "2";
+  translateTable["R"] = "4";
+  translateTable["S"] = "8";
+  translateTable["T"] = "8";
+  translateTable["U"] = "3";
+  translateTable["V"] = "3";
+  translateTable["W"] = "9";
+  translateTable["X"] = "2";
+  translateTable["Y"] = "6";
+  translateTable["Z"] = "4";
+
   var keyesPressed = [];
 
   $('html')
@@ -52,15 +91,16 @@ $(document).ready(function () {
 
       if (pressed !== undefined) {
         e.preventDefault();
-        $("#_" + pressed).addClass('key-pressed');
+        $("#_" + translateTable[pressed]).addClass('key-pressed');
       }
     })
     .keyup(function (e) {
       var pressed = codeTable[e.keyCode];
 
       if (pressed !== undefined) {
-        $("#_" + pressed).removeClass('key-pressed');
-        keyesPressed.push(e.keyCode);
+        $("#_" + translateTable[pressed]).removeClass('key-pressed');
+
+        //keyesPressed.push(e.keyCode);
         //console.log(keyesPressed);
       }
     });

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('#gauge').jqxGauge({
-    height: '500px',
-    width: '500px',
+    height: '650px',
+    width: '650px',
     style: { fill: '#222222', stroke: '#222222' },
     max: 260,
     cap: { size: '5%', style: { fill: 'red', stroke: 'red' } },

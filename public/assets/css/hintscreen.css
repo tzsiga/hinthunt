@@ -1,0 +1,8 @@
+body#hint-screen {
+  background-color: #222222;
+  color: white;
+}
+
+#actual-hint {
+  font-size: 600px;
+}

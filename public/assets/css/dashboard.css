@@ -20,7 +20,7 @@ body#dashboard {
 }
 
 #upper-left, #upper-right {
-  top: 0;
+  top: 50px;
 }
 
 #bottom-left, #bottom-right {
@@ -28,7 +28,7 @@ body#dashboard {
 }
 
 #upper-left, #bottom-left {
-  left: 0;
+  left: 50px;
   text-align: left;
 }
 
@@ -69,25 +69,25 @@ body#dashboard {
 
 text.jqx-gauge-label {
   fill: white;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 #gauge-value {
-  margin-top: -200px;
+  margin-top: -250px;
 }
 
 .digital-panel {
   text-align: center;
   font-family: 'Digital-7';
-  font-size: 100px;
+  font-size: 150px;
   /*background-color: darkgreen;*/
   color: lawngreen;
-  margin: 30px;
+  margin: 50px;
   padding: 0;
   line-height: 1;
 }
 
 .digital-panel-unit {
   font-family: helvetica, arial, sans-serif;
-  font-size: 60px;
+  font-size: 90px;
 }
