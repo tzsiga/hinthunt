@@ -19,10 +19,6 @@
     socket.emit('StoreClient', { customId: 'dashboard' });
   });
 
-  socket.on('SetPressure', function (value) {
-    setGaugeValue(value);
-  });
-
   socket.on('SetCrossIcon', function (value) {
     $('#icon-cross').html(
       $('<img>', {
@@ -79,50 +75,4 @@
     $('#long').html(value + '<span class="digital-panel-unit"> m</span>');
   });
 
-  function setGaugeValue(value) {
-    $('#gauge-value').text(value);
-    //$('#gauge').jqxGauge('value', value);
-  }
-
-  /*
-  $('#gauge-value').bind("DOMSubtreeModified", function () {
-    setTimeout(function () {
-      var pressure = $('#gauge-value').text();
-      $('#gauge').jqxGauge('value', pressure);
-    }, 500);
-  });
-  //*/
-
-  ///*
-  setInterval(function () {
-    var pressure = $('#gauge-value').text();
-
-    if ($('#gauge').jqxGauge('value') != pressure) {
-      $('#gauge').jqxGauge('value', pressure);
-    }
-  }, 500);
-  //*/
-
-  var valves = {
-    I: 2,
-    II: 7,
-    III: 13,
-    IV: 17,
-    V: 23,
-    VI: 27,
-    VII: 33,
-    VIII: 39,
-    IX: 42,
-    X: 44
-  };
-
-  setGaugeValue(
-    valves.I +
-    valves.II +
-    valves.IV +
-    valves.VI +
-    valves.VIII +
-    valves.IX +
-    valves.X
-  );
 });
