@@ -1,8 +1,27 @@
+@font-face {
+  font-family: 'Digital-7';
+  src: url('../plugin/fonts/digital-7.eot?') format('eot'),
+  url('../plugin/fonts/digital-7.woff') format('woff'),
+  url('../plugin/fonts/digital-7.ttf')  format('truetype'),
+  url('../plugin/fonts/digital-7.svg#Digital-7') format('svg');
+}
+
 body#hint-screen {
   background-color: #222222;
   color: white;
+  position: relative;
 }
 
 #actual-hint {
-  font-size: 600px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 80%;
+  padding-top: 10%;
+/*
+  outline: 1px solid red;
+*/
+}
+
+#actual-hint h1 {
+  font-size: 200px;
 }

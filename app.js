@@ -21,7 +21,11 @@ var AppState = {
 };
 
 var login = require('./routes/login')(io, AppState);
-app.use('/control', login);
+app.use('/login', login);
+
+app.all('/control/*', function (req, res, next) {
+  login.filterRequest(req, res, next);
+});
 
 var hint = require('./routes/hint')(io);
 app.use('/hint', hint);

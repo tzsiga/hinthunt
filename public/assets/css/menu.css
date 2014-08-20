@@ -1,0 +1,11 @@
+body#menu #select-game, body#menu #select-language {
+  display: none;
+}
+
+body#menu .btn-lg {
+  margin-top: 30px;
+}
+
+body#menu .upper-hud h1 {
+  margin-bottom: 40px;
+}

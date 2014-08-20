@@ -7,13 +7,30 @@ var bcrypt = require('bcrypt');
 
 module.exports = function (io, AppState) {
 
-  router.post('/login', function (req, res) {
+  router.post('/checkPassword', function (req, res) {
     bcrypt.compare(encodeURI(req.body['given-password']), configDB['admin-password'], function(error, result) {
+      if (result)
+        AppState.isAuthenticated = true;
+
       console.log('Access: ' + (result ? 'GRANTED' : 'DENIED'));
       res.send(result);
-      AppState.isAuthenticated = true;
     });
   });
+
+  router.post('/isAuthenticated', function (req, res) {
+    res.send(AppState.isAuthenticated);
+  });
+
+  router['filterRequest'] = function (req, res, next) {
+    if (!AppState.isAuthenticated) {
+      res.writeHead(302, {
+        'Location': '/login'
+      });
+      res.end();
+    } else {
+      next();
+    }
+  };
 
   return router;
 };

@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" media="screen" />
   <link rel="stylesheet" type="text/css" href="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" media="screen" />
   <link rel="stylesheet" type="text/css" href="../assets/css/control.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/menu.css" />
   <script type="text/javascript" src="../socket.io/socket.io.js"></script>
   <script type="text/javascript" src="../assets/plugin/jquery/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
@@ -20,7 +21,7 @@
   <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
   <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
   <script type="text/javascript" src="../assets/plugin/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-  <script type="text/javascript" src="control.js"></script>
+  <script type="text/javascript" src="js/control.js"></script>
 </head>
 <body id="menu">
 
@@ -43,12 +44,11 @@
       </div>
       <h1>Control Panel</h1>
     </div>
-    <br/>
 
     <form>
       <div class="row col-sm-12">
         <div class="col-sm-4">
-          <select class="form-control">
+          <select class="form-control" id="select-action">
             <option disabled selected>Select action</option>
             <option>Game</option>
             <option>System test</option>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="col-sm-4">
-          <select class="form-control">
+          <select class="form-control" id="select-game">
             <option disabled selected>Select game</option>
             <option>Deep Dive</option>
             <option>Yellow Submarine</option>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-sm-4">
-          <select class="form-control">
+          <select class="form-control" id="select-language">
             <option disabled selected>Select language</option>
             <option>English</option>
             <option>German</option>
@@ -75,11 +75,12 @@
 
       <div class="row col-sm-12">
         <div class="col-sm-2 col-sm-offset-5">
-          <button name="start" type="submit" class="btn btn-lg btn-success btn-block" value="start">Start</button>
+          <button name="start" type="submit" class="btn btn-lg btn-success btn-block" id="start" value="start">Start</button>
         </div>
       </div>
     </form>
 
+    <script type="text/javascript" src="js/menu_onload.js"></script>
   </div>
 
 </body>

@@ -11,7 +11,7 @@
   console.log('Game timer started: ' + gameTime);
 
   var socket = io();
-  var hintCardCreator = new HintCardCreator();
+  var hintCardFactory = new HintCardFactory();
 
   socket.on('connect', function () {
     socket.emit('StoreClient', { customId: 'control' });
@@ -19,7 +19,7 @@
 
   socket.on('HintEmit', function (hint) {
     console.log('Hint message received');
-    hintCardCreator.addCard(hint);
+    hintCardFactory.addCard(hint);
   });
 
   $('.fancy-hint-popup').fancybox({

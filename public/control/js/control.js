@@ -1,6 +1,6 @@
 ﻿var socket = io();
 
-function HintCardCreator() {
+function HintCardFactory() {
   function addCard(hint) {
     $('.cards').append(
       createCard(hint).fadeIn(200, function () {

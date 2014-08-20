@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   var codeTable = [];
   /*
   codeTable[32] = "Space";
@@ -104,4 +105,5 @@ $(document).ready(function () {
         //console.log(keyesPressed);
       }
     });
+
 });

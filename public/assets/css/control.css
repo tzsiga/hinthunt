@@ -1,43 +1,3 @@
-body#login {
-  background-color: #eee;
-}
-
-body#login {
-  padding: 15px;
-}
-
-body#login .container {
-  float: none;
-  margin: 0 auto;
-}
-
-body#login #flash-msg {
-  margin-top: 40px;
-}
-
-body#login .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-
-body#login .form-control:focus {
-  z-index: 2;
-}
-
-body#login input[type="password"] {
-  margin-bottom: 10px;
-}
-
-body#login .btn-primary {
-  text-transform: capitalize;
-  margin-top: 15px;
-}
-
 .upper-hud {
   position: relative;
 }
@@ -101,8 +61,4 @@ body#control .card button.send {
 
 body#control .card button.skip {
   right: 95px;
-}
-
-body#menu .btn-lg {
-  margin-top: 30px;
 }

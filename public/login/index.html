@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap-theme.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/control.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/login.css" />
   <script type="text/javascript" src="../socket.io/socket.io.js"></script>
   <script type="text/javascript" src="../assets/plugin/jquery/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
@@ -16,7 +16,7 @@
 
   <div class="container col-xs-8 col-sm-5 col-md-4 col-lg-3">
 
-    <form id="login-form" action="login" method="post" accept-charset="utf-8" role="form">
+    <form id="login-form" action="checkPassword" method="post" accept-charset="utf-8" role="form">
       <h1>Control Panel</h1>
 
       <div id="flash-msg" class="alert alert-warning">
@@ -26,31 +26,9 @@
       <input id="given-password" class="form-control" name="given-password" type="password" value="" placeholder="password" />
       <button id="login-button" class="btn btn-lg btn-primary btn-block" name="login" type="submit" value="login">Login</button>
     </form>
+
+    <script type="text/javascript" src="js/onload.js"></script>
   </div>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      $('#login-button').click(function(event) {
-        event.preventDefault();
-        var form = $('#login-form');
-
-        $.post(form.attr("action"), form.serialize(), function (access) {
-          console.log('Access: ' + access);
-
-          if (access) {
-            window.location.replace('/control/menu.html');
-          } else {
-            $('#flash-msg')
-              .text('Invalid password!')
-              .removeClass('alert-warning')
-              .addClass('alert-danger');
-            $('#given-password').val('');
-          }
-        }, 'json');
-      });
-    });
-  </script>
 
 </body>
 </html>
