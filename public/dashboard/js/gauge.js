@@ -8,8 +8,10 @@ $(document).ready(function () {
       "color": "white",
       "axes": [
         {
-          "axisThickness": 4,
+          "axisThickness": 20,
+          "axisColor": "#FFFFFF",
           "axisAlpha": 1,
+          "tickThickness": 2,
           "tickAlpha": 1,
           "valueInterval": 20,
           "bands": [

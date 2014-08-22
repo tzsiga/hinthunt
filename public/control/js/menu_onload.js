@@ -3,26 +3,36 @@ $(document).ready(function () {
   var sessionParams = {};
 
   $('#select-action').on('change', function () {
-    sessionParams['action'] = $('#select-action').val();
+    sessionParams.action = $('#select-action').val();
 
-    if (sessionParams['action'] === 'Game') {
-      $('#select-game')
+    if (sessionParams.action !== 'System test') {
+      $('#select-language')
         .fadeIn()
         .on('change', function () {
-          sessionParams['game'] = $('#select-game').val();
+          sessionParams.language = $('#select-language').val();
         });
     } else {
-      $('#select-game').fadeOut();
-      delete sessionParams['game'];
+      $('#select-language').fadeOut();
+      delete sessionParams.language;
     }
   });
 
-  $('#start').on('click', function (e) {
-    e.preventDefault();
+  $('#start').on('click', function (event) {
+    event.preventDefault();
 
-    if (sessionParams.game !== undefined) {
+    if (sessionParams.language !== undefined) {
       console.log(sessionParams);
+
+      var form = $('#session-form');
+
       // start game signal -> param: sessionParams.game
+      $.post(form.attr('action'), sessionParams, function (access) {
+        if (access) {
+          window.location.replace('/control/control.html');
+        } else {
+          // error
+        }
+      }, 'json');
     }
   });
 });

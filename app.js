@@ -17,7 +17,9 @@ var io = require('socket.io')(server);
 require('./app/clients')(io);
 
 var AppState = {
-  isAuthenticated: false
+  isAuthenticated: false,
+  action: null,
+  game: null
 };
 
 var login = require('./routes/login')(io, AppState);
@@ -27,7 +29,16 @@ app.all('/control/*', function (req, res, next) {
   login.filterRequest(req, res, next);
 });
 
-var hint = require('./routes/hint')(io);
+app.post('/control/startSession', function (req, res, next) {
+  console.log(req.body);
+
+  AppState.action = req.body.action;
+  AppState.language = req.body.language;
+
+  res.send(AppState);
+});
+
+var hint = require('./routes/hint')(io, AppState);
 app.use('/hint', hint);
 
 var dashboard = require('./routes/dashboard')(io);

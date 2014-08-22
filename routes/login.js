@@ -17,11 +17,7 @@ module.exports = function (io, AppState) {
     });
   });
 
-  router.post('/isAuthenticated', function (req, res) {
-    res.send(AppState.isAuthenticated);
-  });
-
-  router['filterRequest'] = function (req, res, next) {
+  router.filterRequest = function (req, res, next) {
     if (!AppState.isAuthenticated) {
       res.writeHead(302, {
         'Location': '/login'
