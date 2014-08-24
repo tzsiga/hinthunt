@@ -18,7 +18,8 @@ require('./app/clients')(io);
 
 var AppState = {
   isAuthenticated: false,
-  action: null
+  action: null,
+  language: null
 };
 
 var login = require('./routes/login')(io, AppState);

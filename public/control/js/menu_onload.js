@@ -17,21 +17,19 @@ $(document).ready(function () {
     }
   });
 
+  var socket = io();
+
+  socket.on('connect', function () {
+    socket.emit('StoreClient', { customId: 'menu' });
+  });
+
   $('#start').on('click', function (event) {
     event.preventDefault();
 
     if (sessionParams.language !== undefined) {
       console.log(sessionParams);
-
-      var form = $('#session-form');
-
-      $.post(form.attr('action'), sessionParams, function (access) {
-        if (access) {
-          window.location.replace('/control/control.html');
-        } else {
-          // error
-        }
-      }, 'json');
+      socket.emit('InitGame', sessionParams);
+      window.location.replace('/control/control.html');
     }
   });
 });

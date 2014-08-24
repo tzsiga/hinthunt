@@ -4,13 +4,11 @@ var router = express.Router();
 
 module.exports = function (io, AppState, hint) {
 
-  router.post('/init', function (req, res) {
-    console.log(req.body);
-
-    AppState.action = req.body.action;
-    AppState.language = req.body.language;
-
-    res.send(AppState);
+  io.on('connection', function (socket) {
+    socket.on('InitGame', function(sessionParams) {
+      AppState.action = sessionParams.action;
+      AppState.language = sessionParams.language;
+    });
   });
 
   router.get('/start', function (req, res) {
