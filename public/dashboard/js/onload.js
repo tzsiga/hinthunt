@@ -19,7 +19,7 @@
     socket.emit('StoreClient', { customId: 'dashboard' });
   });
 
-  socket.on('SetCrossIcon', function (value) {
+  socket.on('setCrossIcon', function (value) {
     $('#icon-cross').html(
       $('<img>', {
         src: (value == 'red') ?
@@ -31,7 +31,7 @@
     );
   });
 
-  socket.on('SetGaugeIcon', function (value) {
+  socket.on('setGaugeIcon', function (value) {
     $('#icon-gauge').html(
       $('<img>', {
         src: (value == 'red') ?
@@ -43,7 +43,7 @@
     );
   });
 
-  socket.on('SetKeyIcon', function (value) {
+  socket.on('setKeyIcon', function (value) {
     $('#icon-key').html(
       $('<img>', {
         src: (value == 'red') ?
@@ -55,7 +55,7 @@
     );
   });
 
-  socket.on('SetTorpedoIcon', function (value) {
+  socket.on('setTorpedoIcon', function (value) {
     $('#icon-torpedo').html(
       $('<img>', {
         src: (value == 'red') ?
@@ -67,11 +67,11 @@
     );
   });
 
-  socket.on('SetDeg', function (value) {
+  socket.on('setDeg', function (value) {
     $('#deg').html(value + '&deg;');
   });
 
-  socket.on('SetLong', function (value) {
+  socket.on('setLong', function (value) {
     $('#long').html(value + '<span class="digital-panel-unit"> m</span>');
   });
 

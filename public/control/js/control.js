@@ -65,6 +65,7 @@ function HintCardFactory() {
   }
 
   return {
-    addCard: addCard
+    addCard: addCard,
+    removeCard: removeCard
   };
 }

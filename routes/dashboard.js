@@ -4,51 +4,51 @@ var router = express.Router();
 
 module.exports = function (io) {
 
-  router.get('/SetPressure/:value?', function (req, res) {
+  router.get('/setPressure/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetPressure', req.params.value);
+      io.emit('setPressure', req.params.value);
       res.send(req.params.value);
     }
   });
 
-  router.get('/SetCrossIcon/:value?', function (req, res) {
+  router.get('/setCrossIcon/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetCrossIcon', req.params.value);
+      io.emit('setCrossIcon', req.params.value);
       res.send(req.params.value);
     }
   });
 
-  router.get('/SetGaugeIcon/:value?', function (req, res) {
+  router.get('/setGaugeIcon/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetGaugeIcon', req.params.value);
+      io.emit('setGaugeIcon', req.params.value);
       res.send(req.params.value);
     }
   });
 
-  router.get('/SetKeyIcon/:value?', function (req, res) {
+  router.get('/setKeyIcon/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetKeyIcon', req.params.value);
+      io.emit('setKeyIcon', req.params.value);
       res.send(req.params.value);
     }
   });
 
-  router.get('/SetTorpedoIcon/:value?', function (req, res) {
+  router.get('/setTorpedoIcon/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetTorpedoIcon', req.params.value);
+      io.emit('setTorpedoIcon', req.params.value);
       res.send(req.params.value);
     }
   });
 
-  router.get('/SetDeg/:value?', function (req, res) {
+  router.get('/setDeg/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetDeg', req.params.value);
+      io.emit('setDeg', req.params.value);
       res.send(req.params.value);
     }
   });
 
-  router.get('/SetLong/:value?', function (req, res) {
+  router.get('/setLong/:value?', function (req, res) {
     if (req.params.value) {
-      io.emit('SetLong', req.params.value);
+      io.emit('setLong', req.params.value);
       res.send(req.params.value);
     }
   });

@@ -25,7 +25,6 @@ $(document).ready(function () {
 
       var form = $('#session-form');
 
-      // start game signal -> param: sessionParams.game
       $.post(form.attr('action'), sessionParams, function (access) {
         if (access) {
           window.location.replace('/control/control.html');

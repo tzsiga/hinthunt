@@ -18,30 +18,23 @@ require('./app/clients')(io);
 
 var AppState = {
   isAuthenticated: false,
-  action: null,
-  game: null
+  action: null
 };
 
 var login = require('./routes/login')(io, AppState);
 app.use('/login', login);
 
-app.all('/control/*', function (req, res, next) {
-  login.filterRequest(req, res, next);
-});
-
-app.post('/control/startSession', function (req, res, next) {
-  console.log(req.body);
-
-  AppState.action = req.body.action;
-  AppState.language = req.body.language;
-
-  res.send(AppState);
-});
-
 var hint = require('./routes/hint')(io, AppState);
 app.use('/hint', hint);
 
+var game = require('./routes/game')(io, AppState, hint);
+app.use('/game', game);
+
 var dashboard = require('./routes/dashboard')(io);
 app.use('/dashboard', dashboard);
+
+app.all('/control/*', function (req, res, next) {
+  login.filterRequest(req, res, next);
+});
 
 app.use(express.static(path.join(__dirname, './public')));

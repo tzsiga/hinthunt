@@ -9,8 +9,8 @@ var timeouts = {};
 module.exports = function (io, AppState) {
   io.on('connect', function (socket) {
     socket.on('StoreClient', function (data) {
-      if (data.customId == 'control' && AppState.action == 'game') {
-        armCritical(io);
+      if (data.customId == 'control') {
+        io.emit('SetupGame', AppState);
       }
     });
   });
@@ -26,7 +26,7 @@ module.exports = function (io, AppState) {
     });
   });
 
-  router.get('/emit/:id?', function (req, res) {
+  router.get('/start/:id?', function (req, res) {
     if (req.params.id) {
       hintDB.filter(function (item) {
         if (item.id == req.params.id) {
@@ -36,20 +36,30 @@ module.exports = function (io, AppState) {
     }
   });
 
+  router.get('/stop/:id?', function (req, res) {
+    if (req.params.id) {
+      hintDB.filter(function (item) {
+        if (item.id == req.params.id) {
+          stopItem(item, io, res);
+        }
+      });
+    }
+  });
+
+  router.armCritical = function (io) {
+    var critical = getCritical(AppState.action);
+
+    for (var j in critical) {
+      sendItem(critical[j], io, io);
+    }
+  };
+
   return router;
 };
 
-function armCritical(io) {
-  var critical = getCritical();
-
-  for (var j in critical) {
-    sendItem(critical[j], io, io);
-  }
-}
-
-function getCritical() {
+function getCritical(game) {
   return hintDB.filter(function (item) {
-    return item.critical == true;
+    return item.critical == true && item.game == game;
   });
 }
 
@@ -63,6 +73,12 @@ function sendItem(item, io, res) {
     setHintTimeout(item, io);
     console.log('Timer started: [' + item.title + ', ' + item.timeout + ']');
   }
+}
+
+function stopItem(item, io, res) {
+  clearHintTimeout(item);
+  io.emit('HintStop', item);
+  res.send('hint stopped: ' + item);
 }
 
 function isTriggered(item) {
