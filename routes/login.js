@@ -3,7 +3,7 @@ var path = require('path');
 var router = express.Router();
 
 var configDB = require(path.join(__dirname, '../app/config.js')).config;
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (io, AppState) {
 
