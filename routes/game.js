@@ -17,5 +17,10 @@ module.exports = function (io, AppState, hint) {
     res.send('Game started!');
   });
 
+  router.get('/stop', function (req, res) {
+    io.emit('StopGame');
+    res.send('Game stopped!');
+  });
+
   return router;
 };

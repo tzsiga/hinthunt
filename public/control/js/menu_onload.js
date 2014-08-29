@@ -20,7 +20,7 @@ $(document).ready(function () {
   var socket = io();
 
   socket.on('connect', function () {
-    socket.emit('StoreClient', { customId: 'menu' });
+    socket.emit('CustomId', 'menu');
   });
 
   $('#start').on('click', function (event) {

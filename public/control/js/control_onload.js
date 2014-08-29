@@ -4,7 +4,7 @@
   var hintCardFactory = new HintCardFactory();
 
   socket.on('connect', function () {
-    socket.emit('StoreClient', { customId: 'control' });
+    socket.emit('CustomId', 'control');
   });
 
   socket.on('SetupGame', function (AppState) {
@@ -22,6 +22,10 @@
     });
 
     console.log('Game timer started: ' + gameTime);
+  });
+
+  socket.on('StopGame', function () {
+    $('.game-time').countdown('destroy');
   });
 
   socket.on('HintEmit', function (hint) {

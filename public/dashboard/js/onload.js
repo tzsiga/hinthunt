@@ -16,7 +16,7 @@
   var socket = io();
 
   socket.on('connect', function () {
-    socket.emit('StoreClient', { customId: 'dashboard' });
+    socket.emit('CustomId', 'dashboard');
   });
 
   socket.on('setCrossIcon', function (value) {

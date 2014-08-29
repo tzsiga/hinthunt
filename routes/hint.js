@@ -8,8 +8,8 @@ var timeouts = {};
 
 module.exports = function (io, AppState) {
   io.on('connect', function (socket) {
-    socket.on('StoreClient', function (data) {
-      if (data.customId == 'control') {
+    socket.on('CustomId', function (client) {
+      if (client == 'control') {
         io.emit('SetupGame', AppState);
       }
     });
@@ -23,6 +23,10 @@ module.exports = function (io, AppState) {
 
     socket.on('HintSkip', function(item) {
       clearHintTimeout(item);
+    });
+
+    socket.on('StopGame', function() {
+      stopAllItem(io);
     });
   });
 
@@ -40,10 +44,15 @@ module.exports = function (io, AppState) {
     if (req.params.id) {
       hintDB.filter(function (item) {
         if (item.id == req.params.id) {
-          stopItem(item, io, res);
+          stopItem(item, io);
+          res.send('hint stopped: ' + item);
         }
       });
     }
+  });
+
+  router.get('/stop/all', function (req, res) {
+    stopAllItem(io);
   });
 
   router.armCritical = function (io) {
@@ -75,10 +84,16 @@ function sendItem(item, io, res) {
   }
 }
 
-function stopItem(item, io, res) {
+function stopAllItem(io) {
+  hintDB.filter(function (item) {
+    stopItem(item, io);
+    res.send('All hints stopped');
+  });
+}
+
+function stopItem(item, io) {
   clearHintTimeout(item);
   io.emit('HintStop', item);
-  res.send('hint stopped: ' + item);
 }
 
 function isTriggered(item) {
