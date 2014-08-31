@@ -40,19 +40,20 @@ module.exports = function (io, AppState) {
     }
   });
 
+  router.get('/stopAll', function (req, res) {
+    stopAllItem(io);
+    res.send('All timers stopped!');
+  });
+
   router.get('/stop/:id?', function (req, res) {
     if (req.params.id) {
       hintDB.filter(function (item) {
         if (item.id == req.params.id) {
           stopItem(item, io);
-          res.send('hint stopped: ' + item);
+          res.send('Timer stopped: ' + item);
         }
       });
     }
-  });
-
-  router.get('/stop/all', function (req, res) {
-    stopAllItem(io);
   });
 
   router.armCritical = function (io) {
@@ -85,10 +86,17 @@ function sendItem(item, io, res) {
 }
 
 function stopAllItem(io) {
-  hintDB.filter(function (item) {
-    stopItem(item, io);
-    res.send('All hints stopped');
-  });
+  for (var item in timeouts) {
+    hintDB.filter(function (hint) {
+      if (hint.id == item) {
+        io.emit('HintStop', hint);
+      }
+    });
+
+    clearTimeout(timeouts[item]);
+    delete timeouts[item];
+  }
+  console.log('All timeouts deleted');
 }
 
 function stopItem(item, io) {
