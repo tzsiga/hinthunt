@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  var socket = io();
+
   $('#login-button').click(function (event) {
     event.preventDefault();
     var form = $('#login-form');
@@ -10,7 +12,8 @@ $(document).ready(function () {
         .removeClass('alert-warning')
         .addClass('alert-danger');
     } else {
-      $.post(form.attr('action'), form.serialize(), function (access) {
+      socket.emit('CheckPassword', $('#given-password').val());
+      socket.on('isAuthenticated', function (access) {
         if (access) {
           window.location.replace('/control/menu.html');
         } else {
@@ -20,7 +23,7 @@ $(document).ready(function () {
             .addClass('alert-danger');
           $('#given-password').val('');
         }
-      }, 'json');
+      });
     }
   });
 });

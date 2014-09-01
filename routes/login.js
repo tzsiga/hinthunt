@@ -7,22 +7,21 @@ var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (io, AppState) {
 
-  router.post('/checkPassword', function (req, res) {
-    bcrypt.compare(encodeURI(req.body['given-password']), configDB['admin-password'], function(error, result) {
-      if (result)
-        AppState.isAuthenticated = true;
+  io.on('connection', function (socket) {
+    socket.on('CheckPassword', function(given) {
+      bcrypt.compare(encodeURI(given), configDB['admin-password'], function(error, result) {
+        if (result)
+          AppState.isAuthenticated = true;
 
-      console.log('Access: ' + (result ? 'GRANTED' : 'DENIED'));
-      res.send(result);
+        console.log('Access: ' + (result ? 'GRANTED' : 'DENIED'));
+        io.emit('isAuthenticated', result);
+      });
     });
   });
 
   router.filterRequest = function (req, res, next) {
     if (!AppState.isAuthenticated) {
-      res.writeHead(302, {
-        'Location': '/login'
-      });
-      res.end();
+      res.redirect('/login');
     } else {
       next();
     }

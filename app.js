@@ -3,6 +3,8 @@ var path = require('path');
 var http = require('http');
 var url = require('url');
 
+var devmode = true;
+
 var app = express();
 app.set('port', process.env.PORT || 3000);
 
@@ -37,5 +39,15 @@ app.use('/dashboard', dashboard);
 app.all('/control/*', function (req, res, next) {
   login.filterRequest(req, res, next);
 });
+
+if (devmode) {
+  app.use('/dev', function (req, res) {
+    AppState.isAuthenticated = true;
+    AppState.action = 'Deep Down';
+    AppState.language = 'English';
+
+    res.redirect('/control/control.html');
+  });
+}
 
 app.use(express.static(path.join(__dirname, './public')));
