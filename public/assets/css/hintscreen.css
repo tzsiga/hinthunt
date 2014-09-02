@@ -6,22 +6,41 @@
   url('../plugin/fonts/digital-7.svg#Digital-7') format('svg');
 }
 
+html, body {
+  height: 100%;
+}
+
 body#hint-screen {
   background-color: #222222;
   color: white;
-  position: relative;
+  padding: 0;
+}
+
+#game-clock-box {
+  height:auto !important;
+  height: 70%;
+  min-height: 70%;
+
+  padding-left: 3%;
+
+  font-family: 'Digital-7';
+  font-size: 500px;
+  color: lawngreen;
+  line-height: 1;
+  text-align: left;
 }
 
 #actual-hint {
   display: table-cell;
-  vertical-align: middle;
-  height: 80%;
-  padding-top: 10%;
-/*
-  outline: 1px solid red;
-*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: 0;
 }
 
 #actual-hint h1 {
-  font-size: 200px;
+  font-size: 170px;
 }

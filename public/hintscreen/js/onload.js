@@ -6,21 +6,32 @@
   });
 
   socket.on('StartGame', function () {
-    console.log('Game Start message received');
     $('#actual-hint').html('');
-    //TODO: start big timer
+
+    var gameTime = (60 * 60) * 1000;
+
+    $('#game-clock').countdown({
+      until: gameTime / 1000,
+      format: 'MS',
+      compact: true
+      //onExpiry: function () {}
+    });
   });
 
   socket.on('StopGame', function () {
-    console.log('Game Stop message received');
     $('#actual-hint').html('');
-    //TODO: stop big timer
+    $('#game-clock').countdown('destroy');
   });
 
   socket.on('HintShow', function (hint) {
-    console.log('Hint message received ' + hint.title);
-    $('#actual-hint').html(
-      '<h1>' + hint.title + '</h1>'
-    );
+    $('#actual-hint')
+      .html('<h1>' + hint.title + '</h1>')
+      .css('background-color','#222222');
+    
+    setTimeout(function () {
+      $('#actual-hint')
+        .html('')
+        .css('background-color','auto');
+    }, 5000);
   });
 });
