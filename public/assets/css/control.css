@@ -62,3 +62,25 @@ body#control .card button.send {
 body#control .card button.skip {
   right: 95px;
 }
+
+body#control #custom-hint-popup {
+  display: none;
+  width: 530px;
+  padding: 15px;
+}
+
+body#control #custom-hint-popup h1 {
+  margin: 0 auto 30px;
+}
+
+body#control #custom-hint-popup h4 {
+  margin: 15px auto 30px;
+}
+
+body#control #custom-hint-popup form {
+  text-align: right;
+}
+
+body#control #custom-hint-popup form * {
+  margin: 20px auto 0;
+}

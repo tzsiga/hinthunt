@@ -35,11 +35,20 @@
       <h3 class="col-sm-6 col-xs-12">Game: <span id="game-name"></span></h3>
       <h3 class="col-sm-4 col-xs-12">Time left: <span class="game-time"></span></h3>
       <div class="col-sm-2 col-xs-12 text-right">
-        <button type="button" class="btn btn-primary hint">+ Hint</button>
+        <a href="#custom-hint-popup" id="hint"><button type="button" class="btn btn-primary">+ Hint</button></a>
       </div>
     </div>
 
     <div class="row col-md-12 cards">
+    </div>
+
+    <div id="custom-hint-popup">
+      <h1>New hint</h1>
+      <h4>The length of the message cannot exceed 16 characters!</h4>
+      <form>
+        <input class="form-control input-lg" id="custom-hint" type="text" maxlength="16" />
+        <button class="btn btn-lg btn-success" id="send-custom-hint" type="button">Send</button>
+      </form>
     </div>
 
     <script type="text/javascript" src="js/control_onload.js"></script>

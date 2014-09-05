@@ -26,12 +26,11 @@
   socket.on('HintShow', function (hint) {
     $('#actual-hint')
       .html('<h1>' + hint.title + '</h1>')
-      .css('background-color','#222222');
-    
+      .fadeIn('fast');
+
     setTimeout(function () {
       $('#actual-hint')
-        .html('')
-        .css('background-color','auto');
+        .fadeOut('fast');
     }, 5000);
   });
 });

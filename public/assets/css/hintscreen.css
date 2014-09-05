@@ -31,7 +31,7 @@ body#hint-screen {
 }
 
 #actual-hint {
-  display: table-cell;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -39,6 +39,7 @@ body#hint-screen {
   height: 100%;
   text-align: center;
   margin: 0;
+  background-color: #222222;
 }
 
 #actual-hint h1 {

@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-
   var socket = io();
   var hintCardFactory = new HintCardFactory();
 
@@ -43,7 +42,21 @@
     autoSize: true
   });
 
-  $('.hint').on('click', function () {
-    console.log('New hint button pressed');
+  $('#hint').fancybox({
+    fitToView: true,
+    autoSize: true
+  });
+
+  $('button#send-custom-hint').on('click', function () {
+    var customHint = $('#custom-hint');
+
+    if (customHint.val().length > 0) {
+      socket.emit('HintShow', {
+        title: customHint.val()
+      });
+
+      customHint.val('');
+      jQuery.fancybox.close();
+    }
   });
 });
