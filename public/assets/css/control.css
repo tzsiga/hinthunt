@@ -81,6 +81,10 @@ body#control #custom-hint-popup form {
   text-align: right;
 }
 
+body#control #custom-hint-popup form label {
+  display: none;
+}
+
 body#control #custom-hint-popup form * {
   margin: 20px auto 0;
 }
