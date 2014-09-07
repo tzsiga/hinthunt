@@ -1,0 +1,92 @@
+.upper-hud {
+  position: relative;
+}
+
+.upper-hud .end {
+  position: absolute;
+  right: 30px;
+  top: 25px;
+}
+
+.upper-hud button.hint {
+  margin-top: 15px;
+}
+
+@media (max-width: 992px) {
+  .upper-hud .end {
+    top: 25px;
+  }
+}
+
+body#control {
+  button {
+    text-transform: uppercase;
+  }
+
+  .cards {
+    padding-top: 15px;
+  }
+
+  .card .panel-body {
+    max-height: 200px;
+  }
+
+  .card .panel-title {
+    font-weight: bold;
+  }
+
+  .card .actions {
+    padding-top: 25px;
+  }
+
+  .card button {
+    position: absolute;
+    bottom: 30px;
+  }
+
+  @media (max-width: 992px) {
+    .card button {
+      bottom: 10px;
+    }
+  }
+
+  @media (min-width:768px) and (max-width: 992px) {
+    .card button {
+      bottom: 30px;
+    }
+  }
+
+  .card button.send {
+    right: 25px;
+  }
+
+  .card button.skip {
+    right: 95px;
+  }
+
+  #custom-hint-popup {
+    display: none;
+    width: 530px;
+    padding: 15px;
+
+    h1 {
+      margin: 0 auto 30px;
+    }
+
+    h4 {
+      margin: 15px auto 30px;
+    }
+
+    form {
+      text-align: right;
+    }
+
+    form label {
+      display: none;
+    }
+
+    form * {
+      margin: 20px auto 0;
+    }
+  }
+}

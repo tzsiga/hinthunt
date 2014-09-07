@@ -61,8 +61,9 @@ module.exports = function (io, AppState) {
   router.armCritical = function (io) {
     var critical = getCritical(AppState.action);
 
-    for (var j in critical) {
-      sendItem(critical[j], io, io);
+    for (var hint in critical) {
+      if (critical.hasOwnProperty(hint))
+        sendItem(critical[hint], io, io);
     }
   };
 
@@ -89,14 +90,16 @@ function sendItem(item, io, res) {
 
 function stopAllItem(io) {
   for (var item in timeouts) {
-    hintDB.filter(function (hint) {
-      if (hint.id == item) {
-        io.emit('HintStop', hint);
-      }
-    });
+    if (timeouts.hasOwnProperty(item)) {
+      hintDB.filter(function (hint) {
+        if (hint.id == item) {
+          io.emit('HintStop', hint);
+        }
+      });
 
-    clearTimeout(timeouts[item]);
-    delete timeouts[item];
+      clearTimeout(timeouts[item]);
+      delete timeouts[item];
+    }
   }
   console.log('All timeouts deleted');
 }

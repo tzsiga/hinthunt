@@ -7,12 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="../assets/plugin/bootstrap/bootstrap-theme.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/dashboard.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/compile/dashboard.css" />
   <script type="text/javascript" src="../socket.io/socket.io.js"></script>
   <script type="text/javascript" src="../assets/plugin/jquery/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
   <script type="text/javascript" src="../assets/plugin/amcharts/amcharts.js"></script>
   <script type="text/javascript" src="../assets/plugin/amcharts/gauge.js"></script>
+  <script type="text/javascript" src="../assets/plugin/lettering/jquery.lettering-0.6.1.min.js"></script>
 </head>
 <body id="dashboard">
 
@@ -38,7 +39,7 @@
   <div id="bottom-left">
     <div class="digital-panel">
       <span id="deg">0&deg;</span>
-      <span id="long">0<span class="digital-panel-unit"> m</span></span>
+      <span id="long">0</span><span class="digital-panel-unit"> m</span>
     </div>
   </div>
 
@@ -55,7 +56,7 @@
         <span id="_8">8</span>
         <span id="_9">9</span>
         <span id="_0">0</span>
-        <span id="_empty"></span>
+        <span class="_empty"></span>
       </div>
       <div class="row">
         <span id="_Q">Q</span>
@@ -88,7 +89,7 @@
         <span id="_B">B</span>
         <span id="_N">N</span>
         <span id="_M">M</span>
-        <span id="_empty"></span>
+        <span class="_empty"></span>
       </div>
     </div>
     <script type="text/javascript" src="js/enigma.js"></script>

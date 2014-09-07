@@ -1,0 +1,16 @@
+body {
+  background-color: #FAFAFA;
+
+  #terminal {
+    margin: 60px auto;
+    float: none;
+
+    .panel-body {
+      height: 300px;
+      overflow-y: scroll;
+      color: chartreuse;
+      background-color: #2E2E2E;
+      font-family: "consolas";
+    }
+  }
+}

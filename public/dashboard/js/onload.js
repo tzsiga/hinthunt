@@ -119,9 +119,13 @@ function setTorpedoIcon(value) {
 }
 
 function setDeg(value) {
-  $('#deg').html(value + '&deg;');
+  $('#deg')
+    .html(value + '&deg;')
+    .lettering();
 }
 
 function setLong(value) {
-  $('#long').html(value + '<span class="digital-panel-unit"> m</span>');
+  $('#long')
+    .html(value)
+    .lettering();
 }

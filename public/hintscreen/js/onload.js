@@ -14,7 +14,7 @@
       until: gameTime / 1000,
       format: 'MS',
       compact: true
-      //onExpiry: function () {}
+      //layout: '<span class="digit">{mn}</span>:<span class="digit">{sn}</span>'
     });
   });
 

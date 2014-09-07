@@ -35,7 +35,9 @@ $(document).ready(function () {
     ]
   });
 
-  $('#gauge-value').text(initValue);
+  $('#gauge-value')
+    .text(initValue)
+    .lettering();
 
   var socket = io();
 
@@ -46,6 +48,8 @@ $(document).ready(function () {
 
   function setGaugeValue(value) {
     gauge.arrows[0].setValue(Math.round(value));
-    $('#gauge-value').text(value);
+    $('#gauge-value')
+      .text(value)
+      .lettering();
   }
 });

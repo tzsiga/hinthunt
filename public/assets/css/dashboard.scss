@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Digital-7';
+  src: url('../plugin/fonts/digital-7.eot?') format('eot'),
+       url('../plugin/fonts/digital-7.woff') format('woff'),
+       url('../plugin/fonts/digital-7.ttf')  format('truetype'),
+       url('../plugin/fonts/digital-7.svg#Digital-7') format('svg');
+}
+
+body#dashboard {
+  font-family: helvetica, arial, sans-serif;
+  background-color: #222222;
+  padding: 0;
+
+  #upper-left, #upper-right, #bottom-left, #bottom-right {
+    padding: 30px;
+    display: inline-block;
+    position: absolute;
+    vertical-align: top;
+  }
+
+  #upper-left, #upper-right {
+    top: 50px;
+  }
+
+  #bottom-left, #bottom-right {
+    bottom: 0;
+  }
+
+  #upper-left, #bottom-left {
+    left: 50px;
+    text-align: left;
+  }
+
+  #upper-right, #bottom-right {
+    right: 0;
+    text-align: right;
+  }
+
+  #enigma-keyboard {
+    margin: 30px;
+
+    .row {
+      text-align: center;
+
+      span {
+        display: inline-block;
+        height: 80px;
+        width: 80px;
+        border: 1px solid lightgrey;
+        background-color: black;
+        color: lightgrey;
+        text-align: center;
+        padding-top: 8px;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 44px;
+        margin: 5px;
+        border-radius: 50%;
+      }
+
+      span.key-pressed {
+        border: 1px solid white;
+        background-color: #fff9a0;
+        color: black;
+      }
+    }
+  }
+
+  text.jqx-gauge-label {
+    fill: white;
+    font-size: 24px;
+  }
+
+  #gauge-value {
+    margin-top: -250px;
+
+    span {
+      display: inline-block;
+      min-width: 72px;
+      text-align: right;
+    }
+  }
+
+  .digital-panel {
+    text-align: center;
+    font-family: 'Digital-7';
+    font-size: 150px;
+    color: lawngreen;
+    margin: 50px;
+    padding: 0;
+    line-height: 1;
+
+    #deg span, #long span {
+      display: inline-block;
+      min-width: 72px;
+      text-align: right;
+    }
+  }
+
+  .digital-panel-unit {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 90px;
+  }
+}
