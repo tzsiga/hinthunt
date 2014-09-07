@@ -13,8 +13,8 @@
     $('#game-clock').countdown({
       until: gameTime / 1000,
       format: 'MS',
-      compact: true
-      //layout: '<span class="digit">{mn}</span>:<span class="digit">{sn}</span>'
+      compact: true,
+      onTick: function () { $('.countdown-amount').lettering(); }
     });
   });
 
@@ -29,8 +29,7 @@
       .fadeIn('fast');
 
     setTimeout(function () {
-      $('#actual-hint')
-        .fadeOut('fast');
+      $('#actual-hint').fadeOut('fast');
     }, 5000);
   });
 });

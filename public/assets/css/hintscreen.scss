@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'Digital-7';
-  src: url('../plugin/fonts/digital-7.eot?') format('eot'),
-  url('../plugin/fonts/digital-7.woff') format('woff'),
-  url('../plugin/fonts/digital-7.ttf')  format('truetype'),
-  url('../plugin/fonts/digital-7.svg#Digital-7') format('svg');
+  src: url('../fonts/digital-7.eot') format('eot'),
+       url('../fonts/digital-7.woff') format('woff'),
+       url('../fonts/digital-7.ttf')  format('truetype'),
+       url('../fonts/digital-7.svg') format('svg');
 }
 
 html, body {
@@ -24,6 +24,16 @@ body#hint-screen {
     color: lawngreen;
     line-height: 1;
     text-align: left;
+
+    #game-clock .countdown-amount span {
+      display: inline-block;
+      width: 237px;
+      text-align: right;
+    }
+
+    #game-clock .countdown-amount span.char3 {
+      width: auto;
+    }
   }
 
   #actual-hint {
