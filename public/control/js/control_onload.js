@@ -13,7 +13,7 @@
   socket.on('StartGame', function () {
     var gameTime = (60 * 60) * 1000;
 
-    $('.game-time').countdown({
+    $('#game-time').countdown({
       until: gameTime / 1000,
       format: 'MS',
       compact: true
@@ -52,7 +52,8 @@
 
     if (customHint.val().length > 0) {
       socket.emit('HintShow', {
-        title: customHint.val()
+        title: customHint.val(),
+        type: 'custom'
       });
 
       customHint.val('');

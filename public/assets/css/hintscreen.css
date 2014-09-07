@@ -17,13 +17,10 @@ body#hint-screen {
 }
 
 #game-clock-box {
-  height:auto !important;
   height: 70%;
   min-height: 70%;
-
   padding-left: 3%;
-
-  font-family: 'Digital-7';
+  font-family: 'Digital-7', serif;
   font-size: 500px;
   color: lawngreen;
   line-height: 1;

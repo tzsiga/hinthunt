@@ -18,7 +18,9 @@ module.exports = function (io, AppState) {
   io.on('connection', function (socket) {
     socket.on('HintShow', function(item) {
       io.emit('HintShow', item);
-      clearHintTimeout(item);
+
+      if (item.type !== 'custom')
+        clearHintTimeout(item);
     });
 
     socket.on('HintSkip', function(item) {
