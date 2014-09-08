@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'Digital-7';
-  src: url('../fonts/digital-7.eot') format('eot'),
-       url('../fonts/digital-7.woff') format('woff'),
-       url('../fonts/digital-7.ttf')  format('truetype'),
-       url('../fonts/digital-7.svg') format('svg');
-}
+@import "fonts";
 
 body#dashboard {
   font-family: helvetica, arial, sans-serif;
@@ -64,11 +58,6 @@ body#dashboard {
         color: black;
       }
     }
-  }
-
-  text.jqx-gauge-label {
-    fill: white;
-    font-size: 24px;
   }
 
   #gauge-value {

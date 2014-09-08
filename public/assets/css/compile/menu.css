@@ -1,1 +1,1 @@
-body#menu #select-game,body#menu #select-language{display:none}body#menu .btn-lg{margin-top:30px}body#menu .upper-hud h1{margin-bottom:40px}
+body#menu .upper-hud{position:relative}body#menu .upper-hud .end{position:absolute;right:30px;top:25px}body#menu .upper-hud button.hint{margin-top:15px}@media (max-width: 992px){body#menu .upper-hud .end{top:25px}}body#menu #select-game,body#menu #select-language{display:none}body#menu .btn-lg{margin-top:30px}body#menu .upper-hud h1{margin-bottom:40px}

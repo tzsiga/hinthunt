@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'Digital-7';
-  src: url('../fonts/digital-7.eot') format('eot'),
-       url('../fonts/digital-7.woff') format('woff'),
-       url('../fonts/digital-7.ttf')  format('truetype'),
-       url('../fonts/digital-7.svg') format('svg');
-}
+@import "fonts";
 
 html, body {
   height: 100%;
@@ -25,14 +19,16 @@ body#hint-screen {
     line-height: 1;
     text-align: left;
 
-    #game-clock .countdown-amount span {
-      display: inline-block;
-      width: 237px;
-      text-align: right;
-    }
+    #game-clock .countdown-amount {
+      span {
+        display: inline-block;
+        width: 237px;
+        text-align: right;
+      }
 
-    #game-clock .countdown-amount span.char3 {
-      width: auto;
+      span.char3 {
+        width: auto;
+      }
     }
   }
 
@@ -46,9 +42,9 @@ body#hint-screen {
     text-align: center;
     margin: 0;
     background-color: #222222;
-  }
 
-  #actual-hint h1 {
-    font-size: 170px;
+    h1 {
+      font-size: 170px;
+    }
   }
 }

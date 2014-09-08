@@ -5,32 +5,32 @@ body#login {
   .container {
     float: none;
     margin: 0 auto;
-  }
 
-  #flash-msg {
-    margin-top: 40px;
-  }
+    #flash-msg {
+      margin-top: 40px;
+    }
 
-  .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-  }
+    .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+    }
 
-  .form-control:focus {
-    z-index: 2;
-  }
+    .form-control:focus {
+      z-index: 2;
+    }
 
-  input[type="password"] {
-    margin-bottom: 10px;
-  }
+    input[type="password"] {
+      margin-bottom: 10px;
+    }
 
-  .btn-primary {
-    text-transform: capitalize;
-    margin-top: 15px;
+    .btn-primary {
+      text-transform: capitalize;
+      margin-top: 15px;
+    }
   }
 }

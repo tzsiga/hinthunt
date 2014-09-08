@@ -2,7 +2,7 @@
 
 function HintCardFactory() {
   function addCard(hint) {
-    $('.cards').append(
+    $('#cards').append(
       createCard(hint).fadeIn(200, function () {
         startTimer(hint);
       })
@@ -19,7 +19,7 @@ function HintCardFactory() {
         )
       ).append(
         $('<div>', { 'class': 'panel-body' }).html(hint.desc).append(
-          $('<div>', {'class': 'actions' }).html('Time left: ').append(
+          $('<div>', { 'class': 'actions' }).html('Time left: ').append(
             $('<span>', { 'id': 't-' + hint.id })
           ).append(
             $('<button>', { 'class': 'btn btn-default skip' })
@@ -58,7 +58,7 @@ function HintCardFactory() {
   }
 
   function removeCard(hint) {
-    $('.cards #h-' + hint.id).fadeOut(200, function () {
+    $('#h-' + hint.id).fadeOut(200, function () {
       $('#t-' + hint.id).countdown('destroy');
       $(this).remove();
     });

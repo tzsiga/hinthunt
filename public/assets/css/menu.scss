@@ -1,4 +1,6 @@
 body#menu {
+  @import "control_hud";
+
   #select-game, #select-language {
     display: none;
   }
