@@ -13,6 +13,7 @@
     "socket.io": ">=1.0.6",
     "body-parser": ">=1.6.2",
     "bcrypt-nodejs": ">=0.0.3",
+    "validator": ">=3.17.1",
     "chai": ">=1.9.1",
     "nodemon": ">=1.2.1"
   }

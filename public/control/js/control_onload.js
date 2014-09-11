@@ -47,17 +47,29 @@
     autoSize: true
   });
 
-  $('button#send-custom-hint').on('click', function () {
-    var customHint = $('#custom-hint');
+  $('html').keypress(function(event) {
+    if (event.keyCode == 13) {  // enter
+      handleInput();
+    }
+  });
 
-    if (customHint.val().length > 0) {
+  $('button#send-custom-hint').on('click', function () {
+    handleInput();
+  });
+
+  function handleInput() {
+    var hint = $('#custom-hint');
+
+    if (validator.matches(hint.val(), '^[^;.!?<>*\'\"]{1,16}$')) {
       socket.emit('HintShow', {
-        title: customHint.val(),
+        title: hint.val(),
         type: 'custom'
       });
 
-      customHint.val('');
+      hint.val('');
       jQuery.fancybox.close();
+    } else {
+      alert('Invalid message!');
     }
-  });
+  }
 });
