@@ -13,12 +13,13 @@ module.exports = function (io, AppState, hint) {
 
   router.get('/start', function (req, res) {
     io.emit('StartGame');
-    hint.armCritical(io);
+    hint.armCritical();
     res.send('Game started!');
   });
 
   router.get('/stop', function (req, res) {
     io.emit('StopGame');
+    hint.stopAllItem();
     res.send('Game stopped!');
   });
 

@@ -29,3 +29,7 @@ node_modules
 
 # Idea editors
 .idea
+
+# Large files
+*.mp4
+*.mov

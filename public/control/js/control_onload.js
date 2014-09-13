@@ -17,14 +17,15 @@
       until: gameTime / 1000,
       format: 'MS',
       compact: true
-      //onExpiry: function () {}
     });
 
     console.log('Game timer started: ' + gameTime);
   });
 
   socket.on('StopGame', function () {
-    $('.game-time').countdown('destroy');
+    $('#game-time').countdown('destroy');
+    $('.hint-timer').countdown('destroy');
+    $('#cards').fadeOut().html('');
   });
 
   socket.on('HintEmit', function (hint) {

@@ -26,24 +26,20 @@ module.exports = function (io, AppState) {
     socket.on('HintSkip', function(item) {
       clearHintTimeout(item);
     });
-
-    socket.on('StopGame', function() {
-      stopAllItem(io);
-    });
   });
 
   router.get('/start/:id?', function (req, res) {
     if (req.params.id) {
       hintDB.filter(function (item) {
         if (item.id == req.params.id) {
-          sendItem(item, io, res);
+          sendItem(item, res);
         }
       });
     }
   });
 
   router.get('/stopAll', function (req, res) {
-    stopAllItem(io);
+    router.stopAllItem();
     res.send('All timers stopped!');
   });
 
@@ -51,86 +47,85 @@ module.exports = function (io, AppState) {
     if (req.params.id) {
       hintDB.filter(function (item) {
         if (item.id == req.params.id) {
-          stopItem(item, io);
+          stopItem(item);
           res.send('Timer stopped: ' + item);
         }
       });
     }
   });
 
-  router.armCritical = function (io) {
+  router.stopAllItem = function () {
+    for (var tId in timeouts) {
+      if (timeouts.hasOwnProperty(tId)) {
+        for (var hId in hintDB) {
+          if (hintDB.hasOwnProperty(hId) && hintDB[hId].id === tId) {
+            io.emit('HintStop', hintDB[hId]);
+          }
+        }
+        clearTimeout(timeouts[tId]);
+        delete timeouts[tId];
+      }
+    }
+    console.log('All timeouts deleted');
+  };
+
+  router.armCritical = function () {
     var critical = getCritical(AppState.action);
 
     for (var hint in critical) {
       if (critical.hasOwnProperty(hint))
-        sendItem(critical[hint], io, io);
+        sendItem(critical[hint], io);
     }
   };
 
-  return router;
-};
-
-function getCritical(game) {
-  return hintDB.filter(function (item) {
-    return item.critical == true && item.game == game;
-  });
-}
-
-function sendItem(item, io, res) {
-  if (isTriggered(item)) {
-    console.log('Already triggered: [' + item.title + '] - skipping!');
-  } else {
-    io.emit('HintEmit', item);
-    res.send(item);
-
-    setHintTimeout(item, io);
-    console.log('Timer started: [' + item.title + ', ' + item.timeout + ']');
+  function getCritical(game) {
+    return hintDB.filter(function (item) {
+      return item.critical == true && item.game == game;
+    });
   }
-}
 
-function stopAllItem(io) {
-  for (var item in timeouts) {
-    if (timeouts.hasOwnProperty(item)) {
-      hintDB.filter(function (hint) {
-        if (hint.id == item) {
-          io.emit('HintStop', hint);
-        }
-      });
+  function sendItem(item, res) {
+    if (isTriggered(item)) {
+      console.log('Already triggered: [' + item.title + '] - skipping!');
+    } else {
+      io.emit('HintEmit', item);
+      res.send(item);
 
-      clearTimeout(timeouts[item]);
-      delete timeouts[item];
+      setHintTimeout(item);
+      console.log('Timer started: [' + item.title + ', ' + item.timeout + ']');
     }
   }
-  console.log('All timeouts deleted');
-}
 
-function stopItem(item, io) {
-  clearHintTimeout(item);
-  io.emit('HintStop', item);
-}
-
-function isTriggered(item) {
-  for (var id in timeouts) {
-    if (id == item.id)
-      return true
+  function stopItem(item) {
+    clearHintTimeout(item);
+    io.emit('HintStop', item);
   }
 
-  return false;
-}
+  function isTriggered(item) {
+    for (var id in timeouts) {
+      if (id == item.id)
+        return true
+    }
 
-function setHintTimeout(item, io) {
-  timeouts[item.id] = setTimeout(function () {
-    io.emit('HintShow', item);
-    console.log('Timed out: [' + item.title + ', ' + item.timeout + ']');
-  }, item.timeout);
-}
+    return false;
+  }
 
-function clearHintTimeout(item) {
-  clearTimeout(timeouts[item.id]);
-  delete timeouts[item.id];
-  console.log('Timeout deleted: [' + item.title + ', ' + item.timeout + ']');
-}
+  function setHintTimeout(item) {
+    timeouts[item.id] = setTimeout(function () {
+      io.emit('HintShow', item);
+      console.log('Timed out: [' + item.title + ', ' + item.timeout + ']');
+    }, item.timeout);
+  }
 
-function getTimeLeft(timeout) {
-  return Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()));
-}
+  function clearHintTimeout(item) {
+    clearTimeout(timeouts[item.id]);
+    delete timeouts[item.id];
+    console.log('Timeout deleted: [' + item.title + ', ' + item.timeout + ']');
+  }
+
+  function getTimeLeft(timeout) {
+    return Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()));
+  }
+
+  return router;
+};

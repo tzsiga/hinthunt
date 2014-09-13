@@ -20,7 +20,7 @@ function HintCardFactory() {
       ).append(
         $('<div>', { 'class': 'panel-body' }).html(hint.desc).append(
           $('<div>', { 'class': 'actions' }).html('Time left: ').append(
-            $('<span>', { 'id': 't-' + hint.id })
+            $('<span>', { 'id': 't-' + hint.id, 'class': 'hint-timer' })
           ).append(
             $('<button>', { 'class': 'btn btn-default skip' })
               .text('Skip')

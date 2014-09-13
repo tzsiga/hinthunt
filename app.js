@@ -24,9 +24,6 @@ var AppState = {
   language: null
 };
 
-// check connected clients (?)
-// reset all clients to default state
-
 var login = require('./routes/login')(io, AppState);
 app.use('/login', login);
 
