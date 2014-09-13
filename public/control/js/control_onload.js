@@ -23,10 +23,14 @@
   });
 
   socket.on('StopGame', function () {
+    StopGameElements();
+  });
+
+  function StopGameElements() {
     $('#game-time').countdown('destroy');
     $('.hint-timer').countdown('destroy');
     $('#cards').fadeOut().html('');
-  });
+  }
 
   socket.on('HintEmit', function (hint) {
     console.log('Hint message received');
@@ -73,4 +77,9 @@
       alert('Invalid message!');
     }
   }
+
+  $('button#end-game').on('click', function () {
+    StopGameElements();
+    socket.emit('StopGame');
+  });
 });

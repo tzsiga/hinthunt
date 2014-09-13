@@ -26,6 +26,10 @@ module.exports = function (io, AppState) {
     socket.on('HintSkip', function(item) {
       clearHintTimeout(item);
     });
+
+    socket.on('StopGame', function() {
+      router.stopAllItem();
+    });
   });
 
   router.get('/start/:id?', function (req, res) {
